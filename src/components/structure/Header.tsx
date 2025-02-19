@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { RedirectToPage } from "../../logic/RedirectToPage";
 import { FiMenu } from "react-icons/fi";
 import { SelectPage } from "../../logic/SelectPage";
+import Logo from '../../assets/logo.png'
 
 export default function Header() {
   const [isTop, setIsTop] = useState(false)
@@ -45,7 +46,7 @@ export default function Header() {
           <div className="flex justify-between items-center">
             <div className="w-fit h-fit">
               <Image
-                src="./logo.png"
+                src={Logo}
                 width={130}
                 height={130}
                 layout="constrained"

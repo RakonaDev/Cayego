@@ -14,7 +14,12 @@ export default {
         background: '#0D0D0D',
         redPrimary: '#F22727',
         redSecondary: '#D91E2E',
-        dark: '#202020'
+        dark: '#202020',
+        darkHard: '#1D1616',
+        backWhite: '#EEEEEE',
+        header: '#1E1F25',
+        body: '#1D1616',
+        user: '#202020'
       }
     },
   },

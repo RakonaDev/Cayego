@@ -1,0 +1,59 @@
+import { Image } from '@unpic/react'
+import LogoWhite from '../../assets/login/logo.png'
+import { Link, useLocation } from 'react-router-dom'
+import { FaCar } from 'react-icons/fa6'
+import { LuInfo } from "react-icons/lu";
+import { useEffect, useState } from 'react';
+
+const itemsSelected = [
+  {
+    top: 'hidden'
+  },
+  {
+    top: 'top-[2.3rem] absolute' 
+  },
+  {
+    top: 'top-[8.1rem] absolute'
+  }
+]
+
+export default function MenuHeader () {
+  const location = useLocation()
+  const [itemSelected, setItemSelected] = useState(itemsSelected[0].top)
+  useEffect(() => {
+    if (location.pathname.includes('servicios')) {
+      setItemSelected(itemsSelected[1].top)
+    }
+    else if (location.pathname.includes('informacion')) {
+      setItemSelected(itemsSelected[2].top)
+    }
+    else {
+      setItemSelected(itemsSelected[0].top)
+    }
+  }, [location.pathname])
+  return (
+    <>
+      <header className="w-1/4 space-y-10 h-dvh flex flex-col pt-20 items-center fixed bg-[#101010] top-0 left-0">
+        <Link to='/admin/dashboard'>
+          <Image 
+            src={LogoWhite}
+            width={200}
+            height={200}
+            layout='constrained'
+          />
+        </Link>
+        <nav className='text-white relative flex flex-col space-y-16 font-bold'>
+          <div className={`${itemSelected} -left-7 rounded-lg w-60 h-20 bg-redPrimary duration-500 transition-all`}></div>
+          <Link to='/admin/servicios' className='text-xl flex gap-4 items-center z-10'>
+            <span><FaCar size={30} /></span>
+            <span className='font-clean_deco'>Servicios</span>
+          </Link>
+          <Link to='/admin/informacion' className='text-xl flex gap-4 items-center z-10'>
+            <span><LuInfo size={30} /></span>
+            <span className='font-clean_deco'>Información</span>
+          </Link>
+        </nav>
+      </header>
+    </>
+  )
+}

@@ -1,8 +1,7 @@
 import { NavigateFunction } from "react-router-dom";
 
 export const RedirectToPage = (navigate: NavigateFunction, newValue: number) => {
-  console.log("Estoy navegando")
-  console.log(newValue)
+  
   if (newValue === 0) {
     navigate('/')
   } else if (newValue === 1) {

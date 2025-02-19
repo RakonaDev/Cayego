@@ -14,9 +14,14 @@ import Container from '../components/utils/Container';
 import { RiPoliceCarFill } from 'react-icons/ri';
 import { MdOutlineTimer } from 'react-icons/md';
 import { FaCarAlt } from 'react-icons/fa';
+import { useEffect } from 'react'
 
 export default function About() {
-
+  useEffect(() => {
+    window.scrollTo({
+      top: 0
+    })
+  }, [])
   return (
     <>
       <header className="w-full h-[50dvh] overflow-hidden relative flex justify-center items-center">
@@ -81,7 +86,7 @@ export default function About() {
       <main className='w-full py-10 bg-gray-100'>
         <Container>
           <div className='space-y-6'>
-            <h2 className='text-center text-3xl font-bold'>¿Quienes Somos?</h2>
+            <h2 className='text-center text-3xl font-bold font-clean_deco'>¿Quienes Somos?</h2>
             <p className='text-center'><strong>CayeGo</strong> es una empresa especializada en servicios de traslado, diseñada para ofrecer soluciones de movilidad seguras, eficientes y accesibles. Nos enfocamos en brindar una experiencia de transporte confiable, cómoda y a medida, tanto para particulares como para empresas. Con un equipo de profesionales altamente capacitados y una flota moderna, nos aseguramos de que cada trayecto sea puntual, seguro y placentero. Ya sea para viajes locales o de larga distancia, en <strong>CayeGo</strong> trabajamos para hacer que tu traslado sea una experiencia sin complicaciones, adaptándonos siempre a tus necesidades y tiempos.</p>
             <Image
               src={Car}
@@ -93,7 +98,7 @@ export default function About() {
           </div>
           <article className='w-full flex flex-col lg:flex-row gap-10'>
             <div className='w-full lg:w-1/2 space-y-6'>
-              <h2 className='text-center font-medium text-3xl'>Misión</h2>
+              <h2 className='text-center font-bold text-3xl font-clean_deco'>Misión</h2>
               <p className='lg:text-start text-center'>Brindar servicios de traslado seguros, eficientes y accesibles, adaptados a las necesidades de nuestros clientes, a través de un equipo humano altamente calificado y una flota moderna. Nos comprometemos a garantizar una experiencia de viaje cómoda, confiable y placentera, impulsando la movilidad sostenible y generando valor para nuestros stakeholders.</p>
               <Image
                 src={Mision}
@@ -104,7 +109,7 @@ export default function About() {
               />
             </div>
             <div className='w-full lg:w-1/2 space-y-6'>
-              <h2 className='text-center font-medium text-3xl'>Visión</h2>
+              <h2 className='text-center font-bold text-3xl font-clean_deco'>Visión</h2>
               <p className='lg:text-start text-center'>Ser la empresa líder en soluciones de movilidad, reconocida por ofrecer un servicio de traslado excepcional, innovador y sostenible, que supere las expectativas de nuestros clientes y contribuya a mejorar la calidad de vida de las personas.</p>
               <Image
                 src={Vision}

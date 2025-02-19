@@ -1,6 +1,8 @@
 import { Image } from "@unpic/react";
 import { ServiceInterface } from "../../interfaces/ServiceInterfaces";
 import { motion } from 'motion/react'
+import { Link } from "react-router-dom";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 
 export default function ServiceCard({ service }: { service: ServiceInterface }) {
   return (
@@ -25,10 +27,13 @@ export default function ServiceCard({ service }: { service: ServiceInterface }) 
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="w-full lg:w-1/2 flex flex-col justify-center space-y-10"
+            className="w-full lg:w-1/2 flex flex-col justify-center items-center space-y-10"
           >
             <h3 className="font-bold lg:text-start text-center text-2xl text-redPrimary font-clean_deco">{service.title}</h3>
             <p className="text-lg lg:text-start text-center">{service.description}</p>
+            <Link to={`/servicios/${service.id}`} className="text-white bg-redPrimary font-medium px-6 py-2 w-fit flex gap-2 items-center rounded-lg text-lg">
+              <span><IoMdInformationCircleOutline size={30} /></span> <span>Más información</span>
+            </Link>
           </motion.div>
         </>) : (
           <>
@@ -36,10 +41,13 @@ export default function ServiceCard({ service }: { service: ServiceInterface }) 
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="w-full lg:w-1/2 flex flex-col justify-center space-y-10"
+              className="w-full lg:w-1/2 flex flex-col justify-center items-center space-y-10"
             >
               <h3 className="font-bold lg:text-start text-center text-2xl text-redPrimary font-clean_deco">{service.title}</h3>
               <p className="text-lg lg:text-start text-center">{service.description}</p>
+              <Link to={`/servicios/${service.id}`} className="text-white bg-redPrimary font-medium px-6 py-2 w-fit flex gap-2 items-center rounded-lg text-lg">
+                <span><IoMdInformationCircleOutline size={30} /></span> <span>Más información</span>
+              </Link>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 100 }}

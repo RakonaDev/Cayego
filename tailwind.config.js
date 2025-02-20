@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         clean_deco: ['"font-clean"', 'sans-serif'],
-        raleway: ['"Raleway"', 'sans-serif']
+        raleway: ['"Raleway"', 'sans-serif'],
+        Montserrat: ['"Montserrat"','system-ui'],
       },
       colors: {
         background: '#0D0D0D',

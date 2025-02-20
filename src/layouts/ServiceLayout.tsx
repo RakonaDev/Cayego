@@ -6,10 +6,6 @@ import { motion } from 'motion/react'
 import { ServiceInterface } from "../interfaces/ServiceInterfaces"
 import AskForReservation from "../components/utils/AskForReservation"
 import Container from "../components/utils/Container"
-import { FaCarAlt } from "react-icons/fa"
-import { MdOutlineTimer } from "react-icons/md"
-import { RiPoliceCarFill } from "react-icons/ri"
-import Background from '../assets/inicio/background1.webp'
 import RedirectToElement from "../logic/RedirectToElement"
 import { dataMethodPayment } from "../helper/dataMethodPayment"
 import { MethodCard } from "../components/utils/MethodCard"
@@ -57,55 +53,12 @@ export default function ServiceLayout() {
           </div>
         </header>
       </div>
-      <section className='w-full'>
-        <article className='w-full relative overflow-hidden py-20'>
-          <Image
-            src={Background}
-            width={1440}
-            height={1320}
-            layout='constrained'
-            className='w-full h-full object-cover absolute top-0'
-            loading='lazy'
-          />
-          <Container>
-            <div className='flex gap-5 justify-evenly z-30 relative flex-wrap'>
-              <motion.div
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className='font-clean_deco px-10 text-white py-5 min-w-[250px] max-w-[350px] w-full flex flex-col gap-5 items-center justify-center'
-              >
-                <RiPoliceCarFill size={80} color='#F22727' />
-                <h2 className='font-clean_deco text-2xl font-bold'>SEGURIDAD</h2>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className='font-clean_deco px-10 text-white py-5 min-w-[250px] max-w-[350px] w-full flex flex-col gap-5 items-center justify-center'
-              >
-                <MdOutlineTimer size={80} color='#F22727' />
-                <h2 className='font-clean_deco text-2xl font-bold'>PUNTUALIDAD</h2>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className=' px-10 text-white py-5 min-w-[250px] max-w-[350px] w-full flex flex-col gap-5 items-center justify-center'
-              >
-                <FaCarAlt size={80} color='#F22727' />
-                <h2 className='font-clean_deco text-2xl font-bold'>SERVICIO</h2>
-              </motion.div>
-            </div>
-          </Container>
-        </article>
-      </section>
       <section className="w-full h-auto py-10 bg-white text-black">
         <Container>
           <div className="space-y-10">
-            <h2 className="text-center font-bold text-3xl font-clean_deco text-redPrimary">De que trata este servicio?</h2>
+            <h2 className="text-center font-bold text-4xl font-Montserrat text-redPrimary">De que trata este servicio?</h2>
             <p className="font-medium text-xl text-center">{serviceSelected.description}</p>
-            <h2 className="text-center font-bold text-3xl font-clean_deco text-redPrimary">Métodos de Pago</h2>
+            <h2 className="text-center font-bold text-4xl font-Montserrat text-redPrimary">Métodos de Pago</h2>
             <div className="flex flex-wrap justify-evenly gap-5">
               {
                 dataMethodPayment.map((method) => {
@@ -115,7 +68,7 @@ export default function ServiceLayout() {
                 })
               }
             </div>
-            <h2 className="text-center font-bold text-3xl font-clean_deco text-redPrimary">Nuestros Transportes Disponibles</h2>
+            <h2 className="text-center font-bold text-3xl font-Montserrat text-redPrimary">Nuestros Transportes Disponibles</h2>
             <div className="flex flex-wrap justify-evenly gap-5">
               {
                 dataSpace.map((transport) => {
@@ -130,7 +83,7 @@ export default function ServiceLayout() {
       </section>
       <section className="w-full h-auto py-10">
         <Container>
-          <h2 className='font-bold text-3xl text-white text-center font-clean_deco mb-10'>Haga su reserva aquí mismo</h2>
+          <h2 className='font-bold text-4xl text-white text-center font-Montserrat mb-10'>Solicita tu reserva con nosotros y un asesor especializado se contactará contigo.</h2>
           <AskForReservation />
         </Container>
       </section>

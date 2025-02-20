@@ -7,7 +7,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 
 export default function UserHeader() {
   return (
-    <div className="w-full bg-[#202020] py-5 flex justify-end text-white">
+    <div className="w-full bg-[#222529] py-5 flex justify-end text-white">
       <header className="px-8 flex gap-5 items-center">
         <div>
           <Image
@@ -19,9 +19,9 @@ export default function UserHeader() {
         </div>
         <div>
           <h3 className="text-xl font-medium text-white">Administrador</h3>
-
+          <p className='italic'>Cayego</p>
         </div>
-        <button className='text-white'>
+        <button title='button' className='text-white'>
           <IoIosArrowDown size={26} />
         </button>
       </header>

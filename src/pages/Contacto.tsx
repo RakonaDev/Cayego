@@ -25,7 +25,7 @@ export default function Contacto() {
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring', duration: 1 }}
-          className='font-bold font-clean_deco text-white z-20 text-2xl lg:text-4xl'
+          className='font-bold font-clean_deco text-white z-20 text-2xl lg:text-3xl'
         >
           Contacto
         </motion.h1>

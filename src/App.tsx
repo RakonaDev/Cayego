@@ -1,11 +1,17 @@
 import './App.css'
 import { Routing } from './routes/Routing'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
 
 function App() {
 
   return (
     <>
-      <Routing />
+
+      <QueryClientProvider client={queryClient}>
+        <Routing />
+      </QueryClientProvider>
     </>
   )
 }

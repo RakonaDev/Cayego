@@ -38,7 +38,7 @@ export default function SwiperDinamic({ data }: { data: SwiperPropsInterface[] }
                       initial={{ opacity: 0, y: 100 }}
                       transition={{ type: 'spring', duration: 1 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      className="font-clean_deco text-xl md:text-2xl lg:text-5xl text-center space-x-1 text-white font-bold z-20"
+                      className="font-clean_deco text-xl md:text-xl lg:text-3xl text-center space-x-1 text-white font-bold z-20"
                     >
                       {dataItem.text}
                     </motion.h1>

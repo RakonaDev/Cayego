@@ -12,7 +12,7 @@ export const HeadTablePC = ({
 }) => {
   return (
     <div
-      className={`w-full flex gap-2 xl:grid font-medium ${
+      className={`w-full flex gap-2 xl:grid font-medium border-b border-gray-400 pb-4 ${
         className ?? "xl:grid-cols-8 "
       }`}
     >

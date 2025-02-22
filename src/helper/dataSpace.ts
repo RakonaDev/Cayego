@@ -1,8 +1,8 @@
-import Auto from '../assets/cars/auto.webp'
-import Bus from '../assets/cars/bus.webp'
-import Camioneta from '../assets/cars/camioneta.webp'
-import Minivan from '../assets/cars/minivan.webp'
-import Suv from '../assets/cars/suv.webp'
+import Auto from '../assets/cars/auto.png'
+import Bus from '../assets/cars/bus.png'
+import Camioneta from '../assets/cars/camioneta.png'
+import Minivan from '../assets/cars/minivan.png'
+import Suv from '../assets/cars/suv.png'
 
 import { SpaceInterface } from "../interfaces/SpaceInterface";
 

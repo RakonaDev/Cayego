@@ -8,6 +8,14 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
+import { HeadTablePC } from '../components/utils/HeadTablePC';
+import { TableTitle } from '../interfaces/TablesInterface';
+
+const TablesTiles: TableTitle[] = [
+  { nombre: "Nombre", className: "min-w-[100px] xl:col-span-2" },
+  { nombre: "Descripción", className: "min-w-[150px] xl:col-span-2" },
+  { nombre: "Imagen", className: "min-w-[200px] xl:col-span-2" },
+];
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -58,7 +66,7 @@ export default function PanelServicios() {
           </div>
         </div>
         <article className="flex flex-wrap mt-3 gap-10 bg-[#101010] w-full p-5 rounded-xl">
-
+          <HeadTablePC titlesTable={TablesTiles} />
         </article>
       </main>
     </div>

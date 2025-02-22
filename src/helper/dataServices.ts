@@ -10,7 +10,7 @@ import Service7 from '../assets/services/service7.webp'
 export const dataServices: ServiceInterface[] = [
   {
     id: 1,
-    title: 'Servicio al aeropuerto',
+    title: 'Servicio al Aeropuerto',
     description: 'Es un servicio de transporte diseñado para trasladar pasajeros desde y hacia el aeropuerto de manera cómoda, segura y puntual.',
     url_image: Service1,
   },
@@ -22,13 +22,13 @@ export const dataServices: ServiceInterface[] = [
   }, 
   {
     id: 3,
-    title: 'Servicio Coorporativo',
+    title: 'Servicio Corporativo',
     description: 'Es una solución de movilidad diseñada para empresas que buscan trasladar a sus empleados, ejecutivos o clientes de manera eficiente, segura y profesional. Este servicio se adapta a las necesidades empresariales, garantizando puntualidad, comodidad y una imagen corporativa adecuada.',
     url_image: Service3,
   },
   {
     id: 4,
-    title: 'Servicio Por horas',
+    title: 'Servicio Por Horas',
     description: 'Es una opción flexible y personalizada que permite a los pasajeros disponer de un vehículo con conductor por un período determinado, adaptándose a sus necesidades de movilidad sin restricciones de rutas o destinos fijos.',
     url_image: Service4,
   },
@@ -46,7 +46,7 @@ export const dataServices: ServiceInterface[] = [
   },
   {
     id: 7,
-    title: 'Servicio de turismo + Guía',
+    title: 'Servicio de Turismo + Guía',
     description: '¿Sueñas con explorar destinos fascinantes y sumergirte en culturas vibrantes? Nuestro servicio de turismo con guía te ofrece la oportunidad de vivir experiencias inolvidables, diseñadas para despertar tus sentidos y enriquecer tu conocimiento.',
     url_image: Service7,
   },

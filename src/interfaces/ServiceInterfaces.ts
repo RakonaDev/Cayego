@@ -5,10 +5,14 @@ export interface ServiceInterface {
   url_image: string
 }
 
-export interface ServiceResponse {
-  service: ServiceInterface[];
+export interface ServicesResponse {
+  services: ServiceInterface[];
   currentPage: number;
   totalPages: number;
+}
+
+export interface ServiceResponse {
+  services: ServiceInterface;
 }
 
 export interface ServicePaginate {

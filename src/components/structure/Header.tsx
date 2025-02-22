@@ -2,7 +2,7 @@ import { Image } from "@unpic/react";
 import Container from "../utils/Container";
 import { BottomNavigation, Box, Button, Drawer } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { IoIosMail, IoMdHome } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowForward, IoIosMail, IoMdHome } from "react-icons/io";
 import { FaCarAlt, FaUsers, FaUserTie } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { RedirectToPage } from "../../logic/RedirectToPage";
@@ -14,7 +14,6 @@ import { AnimatePresence } from "motion/react";
 import { motion } from "framer-motion";
 
 export default function Header() {
-  const [, setShowMenu] = useState(false);
   const [isTop, setIsTop] = useState(false)
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate()
@@ -75,45 +74,51 @@ export default function Header() {
                   }}
                 >
                   {/**onMouseOver={() => setShowMenu(true)} onMouseOut={() => setShowMenu(false)} */}
-                  <Button variant="text" className="mx-5 w-20 h-16 flex flex-col" onClick={() => LinkFunction('/')}>
+                  <Button variant="text" className="mx-5 w-20 h-[4.1rem] flex flex-col" onClick={() => LinkFunction('/')}>
                     <IoMdHome size={41} color="black" />
                     <p className="text-black font-medium">Inicio</p>
                   </Button>
-                  <Button variant="text" className="mx-5 w-20 h-16 flex flex-col" onClick={() => LinkFunction('/nosotros')}>
+                  <Button variant="text" className="mx-5 w-20 h-[4.1rem] flex flex-col  gap-1" onClick={() => LinkFunction('/nosotros')}>
                     <FaUsers size={40} color="black" />
                     <p className="text-black font-medium">Nosotros</p>
                   </Button>
                   <div className="group">
                     {/*<BottomNavigationAction label="Servicios" icon={<FaCarAlt size={45} color="black" />} />*/}
-                    <Button variant="text" className="mx-5 w-20 h-16 flex flex-col" onClick={() => LinkFunction('/servicios')}>
-                      <FaCarAlt size={40} color="black" />
-                      <p className="text-black font-medium">Servicios</p>
+                    <Button variant="text" className="mx-5 w-36 h-16 flex gap-2 items-center" onClick={() => LinkFunction('/servicios')}>
+                      <div className="flex flex-col items-center">
+                        <FaCarAlt size={30} color="black" />
+                        <p className="text-black font-medium">Servicios</p>
+                      </div>
+                      <IoIosArrowDown size={23} color="black" />
                     </Button>
-                    <motion.div key={'wwwww'} onMouseOver={() => setShowMenu(true)} onMouseOut={() => setShowMenu(false)} className="w-fit px-8 py-5 absolute top-[100%] h-auto  rounded-xl right-12">
-                      <div className="bg-white px-7 py-5 rounded-xl space-y-2 z-20 group-hover:translate-x-0 group-hover:opacity-100 translate-x-[500%] opacity-0 duration-500 transition-all">
+                    <motion.div className="w-fit px-8 py-5 absolute top-[100%] h-auto group-hover:opacity-100 -right-[500%] opacity-0 duration-500 transition-all  rounded-xl group-hover:right-12" key={'wwwww'} >
+                      <div className="bg-white px-7 shadow-md shadow-black/30 py-5 rounded-xl space-y-2 ">
                         {
                           dataServices.map((service) => {
                             return (
                               <Link to={`/servicios/${service.id}`} key={service.id} onClick={toggleDrawer(false)}>
                                 <div className="flex gap-2 items-center">
-                                  <span className="font-medium font-Montserrat">{service.title}</span>
+                                  <span><IoIosArrowForward /></span>
+                                  <span className="font-medium text-sm font-Montserrat">{service.title}</span>
                                 </div>
+                                <hr className="border-[1px] border-black my-1"></hr>
                               </Link>
                             )
                           })
+
                         }
                       </div>
                     </motion.div>
                   </div>
-                  <Button variant="text" className="mx-5 w-20 h-16 flex flex-col" onClick={() => LinkFunction('/contacto')}>
-                    <IoIosMail  size={40} color="black" />
+                  <Button variant="text" className="mx-5 w-20 h-[4.1rem] flex flex-col" onClick={() => LinkFunction('/contacto')}>
+                    <IoIosMail size={40} color="black" />
                     <p className="text-black font-medium">Contacto</p>
                   </Button>
-                  <Button variant="text" className="mx-5 w-20 h-16 flex flex-col" onClick={() => LinkFunction('/login')}>
+                  <Button variant="text" className="mx-5 w-20 h-[4.1rem] flex flex-col" onClick={() => LinkFunction('/login')}>
                     <FaUserTie size={40} color="black" />
                     <p className="text-black font-medium">Intranet</p>
                   </Button>
-                  
+
                 </BottomNavigation>
                 <AnimatePresence>
 

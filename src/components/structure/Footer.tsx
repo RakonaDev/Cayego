@@ -5,9 +5,10 @@ import LogoSecundario from '../../assets/footer/logo-secundario.png'
 // Components
 import { Image } from "@unpic/react";
 import Container from "../utils/Container";
-import { SiGooglemaps, SiInstagram } from 'react-icons/si';
-import { FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa';
-import { FaTiktok, FaYoutube } from 'react-icons/fa6';
+import { SiInstagram } from 'react-icons/si';
+import { MdOutlineEmail, MdOutlineHomeWork, MdOutlinePhoneAndroid } from "react-icons/md";
+import { FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import { FaBook, FaBookBookmark, FaMap, FaTiktok, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 
 export default function Footer() {
   return (
@@ -15,31 +16,45 @@ export default function Footer() {
       <footer className='w-full h-auto bg-red-700 py-10'>
         <Container>
           <footer className='w-full h-auto flex max-lg:flex-col gap-10 justify-evenly'>
-            <section className='w-full lg:w-1/2 font-Montserrat text-white space-y-5'>
-              <Image
-                src={LogoSecundario}
-                width={400}
-                height={300}
-                layout='constrained'
-              />
-              <div>
-                <a href="https://maps.app.goo.gl/C86y55DGFHDPyhV76" target="_blank" rel="noopener noreferrer" className="font-medium px-4 py-2 text-white text-xl flex gap-2 items-center"><span><SiGooglemaps size={30} /></span> <span>Prolongación Huáscar 195 San Miguel, Lima, Perú</span></a>
+            <section className='w-full lg:w-1/3 font-Montserrat text-white space-y-5'>
+              <div className='relative'>
+                {/*<p className='italic text-white bg-red-700 text-[12px] absolute left-36 top-[7.3rem] px-5'>En todas partes y en cualquier lugar</p>*/}
+                <Image
+                  src={LogoSecundario}
+                  width={310}
+                  height={300}
+                  layout='constrained'
+                  className='max-lg:w-1/2'
+                />
+              </div>
+
+              <div className='font-Montserrat lg:px-4 space-y-4'>
+                <a href="https://maps.app.goo.gl/C86y55DGFHDPyhV76" target="_blank" rel="noopener noreferrer" className="text-white text-sm lg:text-base flex gap-2"><span><FaMap size={20} /></span> <span>Prolongación Huáscar 195 San Miguel, Lima, Perú</span></a>
+                <p className='flex gap-2 items-center'><span><MdOutlineHomeWork size={20} /></span> <span><span className='font-bold'>Número de RUC:</span> 20613752146</span></p>
+                <p className='flex gap-2'><span><MdOutlineHomeWork size={20} /></span> <span className='my-auto'><span className='font-bold'>Nombre de la Empresa:</span> SAN CAYETANO REMISSE CJ S.A.C. </span></p>
               </div>
             </section>
-            <section className='w-full lg:w-1/2 font-Montserrat text-white space-y-4 text-lg font-medium'>
-              <h5 className='font-bold text-white text-2xl' >Contacto: </h5>
-              <p>Email: cayego33gmail.com</p>
-              <p>Telefono: (+51) 986 296 366</p>
-              <p>Telefono: (+51) 904 866 430</p>
+            <section className='w-full lg:w-1/3 font-Montserrat text-white space-y-5'>
+              <h5 className='font-bold text-white text-base lg:text-lg' >Información</h5>
+              <ul className='space-y-5'>
+                <li ><a href="mailto:cayego33@gmail.com" className='flex gap-2 items-center'><span><FaBook size={22} /></span> <span>Libro de Sugerencias</span></a></li>
+                <li ><a href="mailto:cayego33@gmail.com" className='flex gap-2 items-center'><span><FaBookBookmark size={22} /></span> <span>Libro de Reclamaciones</span></a></li>
+              </ul>
+            </section>
+            <section className='w-full lg:w-1/3 font-Montserrat text-white space-y-4 text-md lg:text-base'>
+              <h5 className='font-bold text-white text-base lg:text-lg' >Contáctanos: </h5>
+              <p className='flex gap-2 items-center text-md lg:text-base'><span><MdOutlineEmail size={30} /></span> <span><span className='font-bold'>Email:</span> cayego33@gmail.com</span></p>
+              <p className='flex gap-2 items-center text-md lg:text-base'><span><MdOutlinePhoneAndroid size={30} /></span> <span><span className='font-bold'>Celular Principal:</span> (+51) 986 296 366</span></p>
+              <p className='flex gap-2 items-center text-md lg:text-base'><span><MdOutlinePhoneAndroid size={30} /></span> <span><span className='font-bold'>Celular Secundario:</span> (+51) 904 866 430</span></p>
               <div className='pt-4 space-y-5'>
-                <h6 className='text-2xl font-bold'>Síguenos en: </h6>
-                <nav className='flex gap-5'>
-                  <a title='instagram' href="https://www.instagram.com/cayego.pe/" target="_blank" rel="noopener noreferrer" className="font-medium px-4 py-4 bg-white rounded-lg text-redPrimary text-xl flex gap-2 items-center"><span><SiInstagram size={30} /></span></a>
-                  <a title='facebook' href="https://www.facebook.com/profile.php?id=61567892079132" target="_blank" rel="noopener noreferrer" className="font-medium px-4 py-4 bg-white rounded-lg text-redPrimary text-xl flex gap-2 items-center"><span><FaFacebook size={30} /></span> </a>
-                  <a title='whatsapp' href="https://wa.link/0k68kd" target="_blank" rel="noopener noreferrer" className="font-medium px-4 py-4 bg-white rounded-lg text-redPrimary text-xl flex gap-2 items-center"><span><FaWhatsapp size={30} /></span></a>
-                  <a title='tiktok' href="https://www.tiktok.com/@caye.go?_t=ZM-8u3lTccQWf8&_r=1" target="_blank" rel="noopener noreferrer" className="font-medium px-4 py-4 bg-white rounded-lg text-redPrimary text-xl flex gap-2 items-center"><span><FaTiktok size={30} /></span></a>
-                  <a title='twitter' href="https://x.com/caye_go" target="_blank" rel="noopener noreferrer" className="font-medium px-4 py-4 bg-white rounded-lg text-redPrimary text-xl flex gap-2 items-center"><span><FaTwitter size={30} /></span></a>
-                  <a title='youtube' href="https://www.youtube.com/@CayeGo33" target="_blank" rel="noopener noreferrer" className="font-medium px-4 py-4 bg-white rounded-lg text-redPrimary text-xl flex gap-2 items-center"><span><FaYoutube size={30} /></span></a>
+                <h6 className='text-base lg:text-lg font-bold'>Síguenos en: </h6>
+                <nav className='flex gap-5 flex-wrap max-lg:justify-evenly'>
+                  <a title='instagram' href="https://www.instagram.com/cayego.pe/" target="_blank" rel="noopener noreferrer" className="font-medium w-10 h-10 justify-center bg-white rounded-lg text-redPrimary flex gap-2 items-center"><span><SiInstagram size={20} /></span></a>
+                  <a title='facebook' href="https://www.facebook.com/profile.php?id=61567892079132" target="_blank" rel="noopener noreferrer" className="font-medium w-10 h-10 justify-center bg-white rounded-lg text-redPrimary text-xl flex gap-2 items-center"><span><FaFacebook size={20} /></span> </a>
+                  <a title='whatsapp' href="https://wa.link/0k68kd" target="_blank" rel="noopener noreferrer" className="font-medium w-10 h-10 bg-white rounded-lg text-redPrimary flex gap-2 items-center justify-center"><span><FaWhatsapp size={20} /></span></a>
+                  <a title='tiktok' href="https://www.tiktok.com/@caye.go?_t=ZM-8u3lTccQWf8&_r=1" target="_blank" rel="noopener noreferrer" className="font-medium w-10 h-10 justify-center bg-white rounded-lg text-redPrimary text-xl flex gap-2 items-center"><span><FaTiktok size={20} /></span></a>
+                  <a title='twitter' href="https://x.com/caye_go" target="_blank" rel="noopener noreferrer" className="font-medium w-10 h-10 justify-center bg-white rounded-lg text-redPrimary flex gap-2 items-center"><span><FaXTwitter size={20} /></span></a>
+                  <a title='youtube' href="https://www.youtube.com/@CayeGo33" target="_blank" rel="noopener noreferrer" className="font-medium w-10 h-10 justify-center bg-white rounded-lg text-redPrimary flex gap-2 items-center"><span><FaYoutube size={20} /></span></a>
                 </nav>
               </div>
             </section>

@@ -56,10 +56,10 @@ export default function Home() {
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5 }}
-                  className='text-white w-full lg:w-1/2 space-y-10 text-lg font-medium'
+                  className='text-white w-full lg:w-1/2 space-y-10 text-lg font-medium py-5'
                 >
-                  <h3 className='text-redPrimary font-bold text-4xl text-center font-Montserrat'>¿Quienes Somos?</h3>
-                  <p className='text-lg text-black'>CayeGo es una empresa especializada en servicios de traslado, diseñada para ofrecer soluciones de movilidad seguras, eficientes y accesibles. Nos enfocamos en brindar una experiencia de transporte confiable, cómoda y a la medida, tanto para particulares como para empresas. Con un equipo de profesionales altamente capacitados y una flota moderna, nos aseguramos de que cada trayecto sea puntual, seguro y placentero. Ya sea para viajes locales o de larga distancia, en CayeGo trabajamos para hacer que tu traslado sea una experiencia sin complicaciones, adaptándonos siempre a tus necesidades y tiempos.</p>
+                  <h3 className='text-redPrimary font-bold text-xl lg:text-3xl text-center font-Montserrat'>¿Quiénes Somos?</h3>
+                  <p className='text-md lg:text-base text-black'>CayeGo es una empresa especializada en servicios de traslado, diseñada para ofrecer soluciones de movilidad seguras, eficientes y accesibles. Nos enfocamos en brindar una experiencia de transporte confiable, cómoda y a la medida, tanto para particulares como para empresas. Con un equipo de profesionales altamente capacitados y una flota moderna, nos aseguramos de que cada trayecto sea puntual, seguro y placentero. Ya sea para viajes locales o de larga distancia, en CayeGo trabajamos para hacer que tu traslado sea una experiencia sin complicaciones, adaptándonos siempre a tus necesidades y tiempos.</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, x: 100 }}
@@ -83,7 +83,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className='text-4xl text-center py-16 font-Montserrat font-bold'
+                className='text-3xl text-center py-16 font-Montserrat font-bold'
               >
                 Nuestros Servicios
               </motion.h3>

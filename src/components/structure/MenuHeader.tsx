@@ -10,7 +10,7 @@ const itemsSelected = [
     top: 'hidden'
   },
   {
-    top: 'top-[2.3rem] absolute' 
+    top: 'top-[2.7rem] absolute' 
   },
   {
     top: 'top-[8.1rem] absolute'
@@ -37,19 +37,19 @@ export default function MenuHeader () {
         <Link to='/admin/dashboard'>
           <Image 
             src={Logo}            
-            width={220}
-            height={200}
+            width={140}
+            height={140}
             layout='constrained'
           />
         </Link>
         <nav className='text-white relative flex flex-col space-y-16 font-bold'>
-          <div className={`${itemSelected} -left-7 rounded-lg w-60 h-20 bg-redPrimary duration-500 transition-all`}></div>
-          <Link to='/admin/servicios' className='text-xl flex gap-4 items-center z-10'>
-            <span><FaCar size={30} /></span>
+          <div className={`${itemSelected} -left-7 rounded-lg w-60 h-16 bg-redPrimary duration-500 transition-all`}></div>
+          <Link to='/admin/servicios' className='text-base flex gap-4 items-center z-10'>
+            <span><FaCar size={20} /></span>
             <span className='font-Montserrat'>Servicios</span>
           </Link>
-          <Link to='/admin/informacion' className='text-xl flex gap-4 items-center z-10'>
-            <span><LuInfo size={30} /></span>
+          <Link to='/admin/informacion' className='text-base flex gap-4 items-center z-10'>
+            <span><LuInfo size={20} /></span>
             <span className='font-Montserrat'>Información</span>
           </Link>
         </nav>

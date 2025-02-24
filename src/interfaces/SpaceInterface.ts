@@ -3,4 +3,5 @@ export interface SpaceInterface {
   name_car: string
   space: number
   description: string
+  price: string
 }

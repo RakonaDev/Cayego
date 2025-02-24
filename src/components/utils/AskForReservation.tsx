@@ -1,6 +1,6 @@
 // Images
 import { useFormik } from 'formik';
-import Car from '../../assets/inicio/car.svg'
+import Car from '../../assets/contacto/hombre.webp'
 // Components
 import { Image } from "@unpic/react";
 import { IoMdInformationCircleOutline } from 'react-icons/io';
@@ -8,6 +8,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { createRef, useState } from 'react';
 import Swal from 'sweetalert2';
 import axios, { AxiosError } from 'axios';
+import { apiURL } from '../../helper/apiAuth';
 
 export default function AskForReservation() {
   const [token, setToken] = useState<string | null | undefined>(null)
@@ -47,7 +48,7 @@ export default function AskForReservation() {
           return
         }
         try {
-          const response = await axios.post('http://127.0.0.1:8000/api/reservation', {
+          const response = await axios.post(`${apiURL}/reservation`, {
             nombres: values.nombre,
             email: values.email,
             celular: values.celular,
@@ -63,6 +64,9 @@ export default function AskForReservation() {
               title: '¡Reserva enviada!',
               icon: 'success',
             })
+          }
+          else {
+            throw new Error('Error')
           }
         }
         catch (error) {
@@ -82,10 +86,11 @@ export default function AskForReservation() {
       <section className="w-full h-auto flex max-lg:flex-col gap-10 items-center" id='reserva'>
         <div className='w-full lg:w-1/2'>
           <div className="w-full text-white space-y-3 mb-3">
-            <h3 className='text-redPrimary font-medium text-lg lg:text-xl'>Recuerde: </h3>
+            <h3 className='text-redPrimary font-medium text-lg lg:text-xl'>Importante: </h3>
             <ul className='max-lg:flex max-lg:flex-col max-lg:items-center space-y-3'>
               <li className='flex gap-2 items-center text-sm lg:text-md text-redPrimary font-medium'><span><IoMdInformationCircleOutline size={30} /></span> <span className='text-white'>Déjanos un mensaje o escríbenos a través de WhatsApp nuestra asistente virtual Cayetana te atenderá.</span></li>
-              <li className='flex gap-2 items-center text-sm lg:text-md text-redPrimary font-medium'><span><IoMdInformationCircleOutline size={30} /></span> <span className='text-white'>Todas las solicitudes de reserva deberán realizarse como mínimo con una hora de anticipación, de solicitar una unidad al momento se deberá llamar a la central telefónica para poder conseguir una unidad disponible.</span></li>
+              <li className='flex gap-2 items-center text-sm lg:text-md text-redPrimary font-medium'><span><IoMdInformationCircleOutline size={30} /></span> <span className='text-white'>Todas las solicitudes de reserva deberán realizarse como mínimo con una hora de anticipación.</span></li>
+              <li className='flex gap-2 items-center text-sm lg:text-md text-redPrimary font-medium'><span><IoMdInformationCircleOutline size={30} /></span> <span className='text-white'>De solicitar una unidad al momento se deberá llamar a la central telefónica para poder conseguir una unidad disponible.</span></li>
             </ul>
           </div>
           <form onSubmit={handleSubmit} className="w-full bg-white py-2 px-5 lg:p-5 rounded-xl space-y-3 flex flex-col items-center">

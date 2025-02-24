@@ -11,10 +11,13 @@ import axios, { AxiosError } from 'axios'
 import { LoginSchema } from '../schemas/UserSchemas'
 import ShowErrors from '../components/features/ShowErrors'
 import Swal from 'sweetalert2'
+import { useTokenAccess } from '../store/useTokenAccess'
 
 export default function Login() {
   const navigate = useNavigate()
+  const { setToken } = useTokenAccess()
   const [showPassword, setShowPassword] = useState(false)
+  const [loading, setLoading] = useState(false)
   const {
     values,
     handleBlur,
@@ -29,17 +32,23 @@ export default function Login() {
     },
     validationSchema: LoginSchema,
     onSubmit: async (values) => {
+      if (loading) return
+      setLoading(true)
       try {
         const response = await axios.post('http://127.0.0.1:8000/api/login', {
           email: values.email,
           password: values.password
         })
-        localStorage.setItem('access_token', response.data.access_token)
-        Swal.fire({
-          icon: 'success',
-          title: 'Credenciales correctas!'
-        })
-        navigate('/admin/dashboard')
+        // localStorage.setItem('access_token', response.data.access_token)
+        if (response.status === 200) {
+          setToken(response.data.access_token)
+          Swal.fire({
+            icon: 'success',
+            title: 'Credenciales correctas!'
+          })
+          navigate('/admin/dashboard')
+          setLoading(false)
+        }
       }
       catch (error) {
         if (error instanceof AxiosError) {
@@ -49,6 +58,7 @@ export default function Login() {
             icon: 'error'
           })
         }
+        setLoading(false)
       }
     }
   })
@@ -69,17 +79,17 @@ export default function Login() {
           <form onSubmit={handleSubmit} className='max-w-lg w-full p-5 space-y-6 flex flex-col items-center'>
             <div className='space-y-3 w-full flex flex-col'>
               <label htmlFor="email" className='text-lg font-medium text-redPrimary'>Usuario:</label>
-              <input type="email" value={values.email} name="email" id="email" onChange={handleChange} onBlur={handleBlur} className='w-full rounded-lg p-3 text-black font-medium' />
+              <input type="email" value={values.email} name="email" id="email" onChange={handleChange} onBlur={handleBlur} className='w-full rounded-lg px-3 py-2 text-black font-medium' />
               <ShowErrors error={errors.email} touched={touched.email} />
             </div>
             <div className='space-y-3 w-full flex flex-col relative'>
               <label htmlFor="password" className='text-lg font-medium text-redPrimary'>Contraseña:</label>
-              <input type={showPassword ? "text" : "password"} value={values.password} name="password" onChange={handleChange} onBlur={handleBlur} id="password" className='w-full rounded-lg p-3 text-black font-medium relative ' />
+              <input type={showPassword ? "text" : "password"} value={values.password} name="password" onChange={handleChange} onBlur={handleBlur} id="password" className='w-full rounded-lg px-3 py-2 text-black font-medium relative ' />
               <ShowErrors error={errors.password} touched={touched.password} />
-              <IoEyeSharp className={`absolute right-3 top-10 text-black z-10 ${showPassword && 'hidden'}`} size={25} onClick={() => setShowPassword(!showPassword)} />
-              <FaEyeSlash className={`absolute right-3 top-10 text-black z-10 ${!showPassword && 'hidden'}`} size={25} onClick={() => setShowPassword(!showPassword)} />
+              <IoEyeSharp className={`absolute right-3 top-9 text-black z-10 ${showPassword && 'hidden'}`} size={25} onClick={() => setShowPassword(!showPassword)} />
+              <FaEyeSlash className={`absolute right-3 top-9 text-black z-10 ${!showPassword && 'hidden'}`} size={25} onClick={() => setShowPassword(!showPassword)} />
             </div>
-            <button type='submit' className='bg-redPrimary font-medium text-white text-lg mx-auto px-8 py-2 rounded-xl'>Ingresar</button>
+            <button type='submit' className='bg-redPrimary font-medium text-white text-lg mx-auto px-8 py-2 rounded-xl'>{loading ? 'Cargando...' : 'Iniciar Sesión'}</button>
 
           </form>
         </div>

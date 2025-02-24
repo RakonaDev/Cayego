@@ -20,7 +20,7 @@ export default function TransportCard({ transport }: { transport: SpaceInterface
         />
         <div className="space-y-3">
           <h3 className=" text-2xl text-center font-bold font-Montserrat lg:font-Montserrat text-redPrimary max-lg:text-center">{transport.name_car}</h3>
-          <p className="text-sm mx-auto px-3 py-2 bg-redPrimary text-white w-fit font-medium rounded-lg">Desde S/. 50.00 y $. 15.00</p>
+          <p className="text-sm mx-auto px-3 py-2 bg-redPrimary text-white w-fit font-medium rounded-lg">{transport.price}</p>
         </div>
       </div>
       <div className="w-full lg:w-1/2 h-full flex flex-col justify-center space-y-5">

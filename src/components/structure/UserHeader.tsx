@@ -18,8 +18,8 @@ export default function UserHeader() {
           />
         </div>
         <div>
-          <h3 className="text-xl font-medium text-white">Administrador</h3>
-          <p className='italic'>Cayego</p>
+          <h3 className="text-base font-medium text-white">Administrador</h3>
+          <p className='italic text-sm'>Cayego</p>
         </div>
         <button title='button' className='text-white'>
           <IoIosArrowDown size={26} />

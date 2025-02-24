@@ -1,4 +1,5 @@
 import './App.css'
+import DialogProvider from './context/DialogProvider'
 import { Routing } from './routes/Routing'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
@@ -10,7 +11,9 @@ function App() {
     <>
 
       <QueryClientProvider client={queryClient}>
-        <Routing />
+        <DialogProvider>
+          <Routing />
+        </DialogProvider>
       </QueryClientProvider>
     </>
   )

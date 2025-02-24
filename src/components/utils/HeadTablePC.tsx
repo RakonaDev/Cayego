@@ -12,8 +12,8 @@ export const HeadTablePC = ({
 }) => {
   return (
     <div
-      className={`w-full flex gap-2 xl:grid font-medium border-b border-gray-400 pb-4 ${
-        className ?? "xl:grid-cols-8 "
+      className={`w-full flex gap-2 xl:grid text-sm font-medium border-b border-gray-400 pb-4 ${
+        className ?? "lg:grid-cols-12 "
       }`}
     >
       {titlesTable.map((title: TableTitle) => (
@@ -25,7 +25,7 @@ export const HeadTablePC = ({
         </div>
       ))}
 
-      {nededActions && <div className="lg:col-span-2 text-center min-w-[150px]">Acciones</div>}
+      {nededActions && <div className="lg:col-span-3 text-center min-w-[150px]">Acciones</div>}
     </div>
   );
 };

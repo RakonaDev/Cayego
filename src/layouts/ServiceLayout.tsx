@@ -17,15 +17,15 @@ import American from '../assets/metodos_pago/american.png'
 import Dinners from '../assets/metodos_pago/dinners.png'
 import Soles from '../assets/metodos_pago/soles.png'
 import Dolar from '../assets/metodos_pago/dolar.png'
-import Transferencia from '../assets/metodos_pago/transferencia.png'
+import { IoMdInformationCircleOutline } from "react-icons/io"
 
 export default function ServiceLayout() {
   const { id } = useParams()
   const [serviceSelected, setServiceSelected] = useState<ServiceInterface>({
     description: '',
     id: 0,
-    title: '',
-    url_image: ''
+    name: '',
+    url_image: '',
   })
   useEffect(() => {
     window.scrollTo({
@@ -52,7 +52,7 @@ export default function ServiceLayout() {
               transition={{ type: 'spring', duration: 1 }}
               className='font-bold font-clean_deco text-white z-20 text-xl lg:text-3xl text-center'
             >
-              {serviceSelected.title}
+              {serviceSelected.name}
             </motion.h1>
             <button onClick={() => RedirectToElement('reserva')} type="button" className="bg-redPrimary font-medium text-base lg:textl-lg text-white px-6 py-2 z-10 mx-auto rounded-lg">
               Quiero Reservar
@@ -85,90 +85,97 @@ export default function ServiceLayout() {
         </Container>
       </section>
       <section className="bg-white py-10 w-full h-auto">
-        <h2 className="text-2xl text-center font-bold font-Montserrat">Métodos de Pago</h2>
-        <ul className="flex gap-2 flex-wrap justify-evenly w-fit mx-auto mt-5">
-          <li className="flex gap-2 items-center  bg-gray-200 py-1 px-2  rounded-lg w-fit">
-            <span>
-              <Image
-                src={American}
-                width={40}
-                height={35}
-                className="h-6 w-10 object-cover"
-              />
-            </span>
-          </li>
-          <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
-            <span>
-              <Image
-                src={Mastercard}
-                width={40}
-                height={35}
-                className="h-6 w-10 object-cover rounded-lg"
-              />
-            </span>
-          </li>
-          <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
-            <span>
-              <Image
-                src={Visa}
-                width={40}
-                height={35}
-                className="h-6 w-10 object-cover rounded-lg"
-              />
-            </span>
-          </li>
-          <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
-            <span>
-              <Image
-                src={Dinners}
-                width={40}
-                height={35}
-                className="h-6 w-24 object-cover rounded-lg"
-              />
-            </span>
-          </li>
-          <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
-            <span>
-              <Image
-                src={Transferencia}
-                width={40}
-                height={35}
-                className="h-6 w-24 object-cover rounded-lg"
-              />
-            </span>
-          </li>
-          <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
-            <span>
-              <Image
-                src={Soles}
-                width={40}
-                height={35}
-                className="h-7 w-14 object-cover rounded-lg"
-              />
-            </span>
-          </li>
-          <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
-            <span>
-              <Image
-                src={Dolar}
-                width={40}
-                height={35}
-                className="h-7 w-14 object-cover rounded-lg"
-              />
-            </span>
-          </li>
-          <li className="flex gap-2 items-center max-lg:flex-col bg-gray-200 py-1 px-2  rounded-lg w-fit">
-            <span>
-              <Image
-                src={Plin}
-                width={30}
-                height={30}
-                className="w-7 h-7 object-cover rounded-lg"
-              />
-            </span>
-            <span className="text-[13px] text-black font-bold">+51 986 296 366</span>
-          </li>
-          <li className="flex gap-2 items-center max-lg:flex-col bg-gray-200 py-1 px-2  rounded-lg w-fit">
+        <Container>
+          <h2 className="text-2xl text-center font-bold font-Montserrat">Métodos de Pago</h2>
+          <ul>
+            <li className='flex gap-2 items-center text-sm lg:text-md text-redPrimary font-medium'><span><IoMdInformationCircleOutline size={30} /></span> <span className='text-black'>Emitimos boletas y facturas</span></li>
+          </ul>
+          <ul className="flex gap-2 flex-wrap justify-evenly w-fit mx-auto mt-5">
+            <li className="flex gap-2 items-center  bg-gray-200 py-1 px-2  rounded-lg w-fit">
+              <span>
+                <Image
+                  src={American}
+                  width={40}
+                  height={35}
+                  className="h-6 w-10 object-cover"
+                />
+              </span>
+            </li>
+            <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
+              <span>
+                <Image
+                  src={Mastercard}
+                  width={40}
+                  height={35}
+                  className="h-6 w-10 object-cover rounded-lg"
+                />
+              </span>
+            </li>
+            <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
+              <span>
+                <Image
+                  src={Visa}
+                  width={40}
+                  height={35}
+                  className="h-6 w-10 object-cover rounded-lg"
+                />
+              </span>
+            </li>
+            <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
+              <span>
+                <Image
+                  src={Dinners}
+                  width={40}
+                  height={35}
+                  className="h-6 w-24 object-cover rounded-lg"
+                />
+              </span>
+            </li>
+            <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
+              <span>
+                <Image
+                  src={Soles}
+                  width={40}
+                  height={35}
+                  className="h-7 w-14 object-cover rounded-lg"
+                />
+              </span>
+            </li>
+            <li className="flex gap-2 items-center bg-gray-200 py-1 px-2  rounded-lg w-fit">
+              <span>
+                <Image
+                  src={Dolar}
+                  width={40}
+                  height={35}
+                  className="h-7 w-14 object-cover rounded-lg"
+                />
+              </span>
+            </li>
+            <li className="flex gap-2 items-center max-lg:flex-col bg-gray-200 py-1 px-2  rounded-lg w-fit h-fit">
+              <div className="flex flex-col gap-2 ">
+                <span>
+                  <Image
+                    src={Plin}
+                    width={30}
+                    height={30}
+                    className="w-7 h-7 object-cover rounded-lg"
+                  />
+                  <span>
+                    <Image
+                      src={Yape}
+                      width={30}
+                      height={30}
+                      className="h-7 w-7 object-cover rounded-lg"
+                    />
+                  </span>
+                </span>
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="text-[13px] text-black font-bold">+51 986 296 366</span>
+                <span className="text-[13px] text-black font-bold">+51 904 866 430</span>
+              </div>
+            </li>
+            {/*<li className="flex gap-2 items-center max-lg:flex-col bg-gray-200 py-1 px-2  rounded-lg w-fit">
             <span>
               <Image
                 src={Yape}
@@ -178,9 +185,18 @@ export default function ServiceLayout() {
               />
             </span>
             <span className="text-[13px] text-black font-bold">+51 986 296 366</span>
-          </li>
-
-        </ul>
+          </li>*/}
+            <li className="flex gap-2 items-center max-lg:flex-col bg-gray-200 py-1 px-2  rounded-lg w-fit">
+              <span className="text-[13px] text-black font-bold">Transferencia Bancaria</span>
+            </li>
+            <li className="flex gap-2 items-center max-lg:flex-col bg-gray-200 py-1 px-2  rounded-lg w-fit">
+              <span className="text-[13px] text-black font-bold">Pago en Línea</span>
+            </li>
+            <li className="flex gap-2 items-center max-lg:flex-col bg-gray-200 py-1 px-2  rounded-lg w-fit">
+              <span className="text-[13px] text-black font-bold">Pago por QR</span>
+            </li>
+          </ul>
+        </Container>
       </section>
       <section className="w-full h-auto py-10 bg-black">
         <Container>

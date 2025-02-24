@@ -21,6 +21,15 @@ export default {
         header: '#1E1F25',
         body: '#1D1616',
         user: '#202020'
+      },
+      animation: {
+        'infinite-scroll': 'infinite-scroll 40s linear infinite',
+      },
+      keyframes: {
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
+        }
       }
     },
   },

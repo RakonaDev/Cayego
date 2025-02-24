@@ -3,7 +3,7 @@ import Container from "../utils/Container";
 import { BottomNavigation, Box, Button, Drawer } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { IoIosArrowDown, IoIosArrowForward, IoIosMail, IoMdHome } from "react-icons/io";
-import { FaCarAlt, FaUsers, FaUserTie } from "react-icons/fa";
+import { FaCarAlt, FaHome, FaUsers, FaUserTie } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { RedirectToPage } from "../../logic/RedirectToPage";
 import { FiMenu } from "react-icons/fi";
@@ -12,13 +12,19 @@ import Logo from '../../assets/logo.png'
 import { dataServices } from "../../helper/dataServices";
 import { AnimatePresence } from "motion/react";
 import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Header() {
   const [isTop, setIsTop] = useState(false)
   const [open, setOpen] = React.useState(false);
+  const [expand, setExpand] = React.useState(false);
   const navigate = useNavigate()
   const location = useLocation()
   const [value, setValue] = React.useState(0);
+
+  const handleAccordion = () => {
+    setExpand(!expand)
+  }
 
   const LinkFunction = (path: string) => {
     navigate(path)
@@ -99,7 +105,7 @@ export default function Header() {
                               <Link to={`/servicios/${service.id}`} key={service.id} onClick={toggleDrawer(false)}>
                                 <div className="flex gap-2 items-center">
                                   <span><IoIosArrowForward /></span>
-                                  <span className="font-medium text-sm font-Montserrat">{service.title}</span>
+                                  <span className="font-medium text-sm font-Montserrat">{service.name}</span>
                                 </div>
                                 <hr className="border-[1px] border-black my-1"></hr>
                               </Link>
@@ -137,12 +143,24 @@ export default function Header() {
                   layout="constrained"
                   className="mx-auto mt-10"
                 />
-                <nav className="flex flex-col gap-10 max-w-[400px] w-full px-20 py-10 text-lg font-medium">
-                  <Link to='/' onClick={toggleDrawer(false)}>Inicio</Link>
-                  <Link to='/nosotros' onClick={toggleDrawer(false)}>Nosotros</Link>
-                  <Link to='/servicios' onClick={toggleDrawer(false)}>Servicios</Link>
-                  <Link to='/contacto' onClick={toggleDrawer(false)}>Contacto</Link>
-                  <Link to='/login' onClick={toggleDrawer(false)}>Intranet</Link>
+                <nav className="flex flex-col gap-5 max-w-[300px] ps-16 w-full px-20 py-10 text-lg font-medium space-y-5">
+                  <Link to='/' onClick={toggleDrawer(false)} className="w-fit flex gap-2 items-center"><span> <FaHome size={20} /></span> <span>Inicio</span></Link>
+                  <Link to='/nosotros' onClick={toggleDrawer(false)} className="w-fit flex gap-2 items-center"> <span><FaUsers size={20} /></span> <span>Nosotros</span></Link>
+                  <div className="flex flex-col">
+                    <button type="button" onClick={handleAccordion} className="w-fit flex gap-2 items-center justify-center"> <span><FaCarAlt size={20} /></span> <span>Servicios</span> <span><IoIosArrowDown size={20} /></span>
+                    </button>
+                    <motion.div layout layoutId="www" transition={{ duration: 0.5 }} className={`${expand ? 'h-auto' : 'h-0'} overflow-hidden`}>
+                      {
+                        dataServices.map((service) => {
+                          return (
+                            <Link to={`/servicios/${service.id}`} onClick={toggleDrawer(false)} className="flex gap-2 items-center"> <span><FaArrowRight size={20} /></span> <span className="text-black">{service.name}</span></Link>
+                          )
+                        })
+                      }
+                    </motion.div>
+                  </div>
+                  <Link to='/contacto' onClick={toggleDrawer(false)} className="w-fit flex gap-2 items-center"><span><IoIosMail size={20} /></span> <span>Contacto</span></Link>
+                  <Link to='/login' onClick={toggleDrawer(false)} className="w-fit flex gap-2 items-center"> <span><FaUserTie size={20} /></span> <span>Intranet</span></Link>
                 </nav>
               </Drawer>
             </nav>

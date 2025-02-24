@@ -1,7 +1,7 @@
 
 // Images
 import Car from '../assets/car.svg'
-import Point from '../assets/avatar/point.png'
+import Point from '../assets/avatar/phone.png'
 // Icons
 import { SiInstagram, SiMinutemailer } from "react-icons/si";
 
@@ -16,6 +16,7 @@ import { FaFacebook, FaXTwitter } from 'react-icons/fa6';
 import { createRef, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import Swal from 'sweetalert2';
+import { apiURL } from '../helper/apiAuth';
 
 export default function ContactLayout() {
   const [token, setToken] = useState<string | null | undefined>(null)
@@ -40,7 +41,9 @@ export default function ContactLayout() {
         fecha: '',
         hora: new Date().getTime(),
         direccion_origen: '',
-        direccion_destino: ''
+        distrito_origen: '',
+        direccion_destino: '',
+        distrito_destino: ''
       },
       onSubmit: async (values) => {
         if (!token) {
@@ -53,15 +56,15 @@ export default function ContactLayout() {
           return
         }
         try {
-          const response = await axios.post('http://127.0.0.1:8000/api/reservation', {
+          const response = await axios.post(`${apiURL}/reservation`, {
             nombres: values.nombre,
             email: values.email,
             celular: values.celular,
             apellidos: values.apellido,
             fecha: values.fecha,
             hora: values.hora,
-            distrito_origen: values.direccion_origen,
-            distrito_destino: values.direccion_destino
+            distrito_origen: values.direccion_origen + ' ' + values.distrito_origen,
+            distrito_destino: values.direccion_destino + ' ' + values.distrito_destino
           })
           if (response.status === 200) {
             Swal.fire({
@@ -85,16 +88,16 @@ export default function ContactLayout() {
     <div className="w-full h-auto py-16 bg-gray-200">
       <Container>
         <main className="w-full h-auto space-y-16">
-          <motion.h2
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            className="text-center text-2xl lg:text-3xl text-black font-Montserrat font-bold"
-          >
-            Solicita tu reserva con nosotros y un asesor especializado se contactará contigo
-          </motion.h2>
           <div className="w-full flex lg:flex-row flex-col justify-evenly gap-10">
             <div className="w-full lg:w-1/3 space-y-5 flex flex-col items-center">
+              <motion.h2
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="text-center lg:text-lg text-black font-Montserrat font-bold"
+              >
+                Solicita tu reserva con nosotros y un asesor especializado se contactará contigo
+              </motion.h2>
               <form onSubmit={handleSubmit} className="w-full bg-white p-5 rounded-xl space-y-3 flex flex-col items-center">
                 <div className='w-full flex gap-2 items-center'>
                   <div className="w-1/2 space-y-2">
@@ -125,12 +128,20 @@ export default function ContactLayout() {
                   </div>
                 </div>
                 <div className="w-full space-y-2">
-                  <label htmlFor="direccion_origen" className="text-sm font-medium">Dirección y Distrito de Origen:</label>
+                  <label htmlFor="direccion_origen" className="text-sm font-medium">Dirección de Origen:</label>
                   <input type="text" required id="direccion_origen" value={values.direccion_origen} name="direccion_origen" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-2 rounded-md border border-black" />
                 </div>
                 <div className="w-full space-y-2">
-                  <label htmlFor="direccion_destino" className=" text-sm font-medium">Dirección y Distrito de Destino:</label>
+                  <label htmlFor="distrito_origen" className="text-sm font-medium">Distrito de Origen:</label>
+                  <input type="text" required id="distrito_origen" value={values.distrito_origen} name="distrito_origen" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-2 rounded-md border border-black" />
+                </div>
+                <div className="w-full space-y-2">
+                  <label htmlFor="direccion_destino" className=" text-sm font-medium">Dirección de Destino:</label>
                   <input type="text" required id="direccion_destino" value={values.direccion_destino} name="direccion_destino" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-2 rounded-md border border-black" />
+                </div>
+                <div className="w-full space-y-2">
+                  <label htmlFor="distrito_destino" className=" text-sm font-medium">Distrito de Destino:</label>
+                  <input type="text" required id="distrito_destino" value={values.distrito_destino} name="distrito_destino" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-2 rounded-md border border-black" />
                 </div>
                 <div className='w-full flex justify-center'>
                   <ReCAPTCHA
@@ -143,6 +154,7 @@ export default function ContactLayout() {
               </form>
             </div>
             <div className='w-full lg:w-1/3 flex flex-col items-center space-y-5 font-Montserrat'>
+              <h3 className='text-lg font-bold font-Montserrat text-center'>Hola soy Cayetana . ¡Pide tu unidad por Whatsapp!  Y lo reservamos en minutos. 🥰</h3>
               <Image
                 src={Point}
                 width={400}
@@ -153,12 +165,12 @@ export default function ContactLayout() {
             <div className="w-full lg:w-1/3 flex flex-col items-center space-y-5 font-Montserrat">
               <section className='w-full h-auto p-5 space-y-4 rounded-xl bg-white'>
                 <h6 className='flex gap-2 text-redPrimary items-center font-Montserrat'><span><FaMapMarkerAlt size={25} /></span> <span className='font-bold text-lg text-black'>Dirección: </span></h6>
-                <p className='text-base font-medium'>Prolongación Huáscar 195 San Miguel, Lima, Perú</p>
+                <p className='text-base font-medium'>Prolongación Huascar 195 Dpto. 5 , San Miguel, Lima, Perú</p>
               </section>
               <section className='w-full h-auto p-5 space-y-4 rounded-xl bg-white'>
                 <h6 className='flex gap-2 items-center text-redPrimary font-Montserrat'><span><FaPhoneAlt size={25} /></span> <span className='font-bold text-lg text-black'>Teléfonos: </span></h6>
-                <p className='text-base font-medium'>(+51) 904 866 430</p>
                 <p className='text-base font-medium'>(+51) 986 296 366</p>
+                <p className='text-base font-medium'>(+51) 904 866 430</p>
               </section>
               <section className='w-full px-5 space-y-3'>
                 <h6><span className='font-bold text-xl text-black font-Montserrat'>Siguenos en: </span></h6>
@@ -176,29 +188,33 @@ export default function ContactLayout() {
           </div>
         </main>
         <main className="mt-16">
-          <h2 className="text-center text-2xl lg:text-3xl text-black font-Montserrat font-bold">Conduce con nosotros si cumples con los siguientes requisitos </h2>
+          <h2 className="text-center text-2xl lg:text-3xl text-black font-Montserrat font-bold">Conduce con nosotros si cumples con los siguiente documentos </h2>
           <div className="w-full lg:flex gap-10 py-10">
             <div className="w-full lg:w-1/2 space-y-10 max-lg:flex max-lg:flex-col max-lg:items-center">
-              <h3 className="text-redPrimary font-bold text-xl lg:text-2xl text-center">REQUERIMIENTOS</h3>
               <ul className='max-lg:flex max-lg:flex-col'>
-                <li className='text-black font-medium text-xl lg:text-2xl mb-5'>Enviar TODOS estos documentos al correo: </li>
+                <li className='text-black font-medium text-xl lg:text-2xl mb-5'>Enviar todos estos documentos al siguiente correo cayego33@gmail.com: </li>
                 <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Antecedentes Policiales o Certi Adulto. (PDF o Foto)</span></li>
                 <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>SOAT. (PDF o Foto)</span></li>
                 <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Tarjeta de Propiedad. (PDF o Foto)</span></li>
                 <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>DNI ambos lados. (PDF o Foto)</span></li>
                 <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Recibo de Luz o Agua del Domicilio Actual (PDF o Foto)</span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar su RUC</span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Nº de cuenta BCP o de otro banco con su N° de cita de 20 digitos CCI</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar su número de RUC</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar Nº de cuenta BCP o de otro banco con su CCI de 20 digitos</span></li>
                 <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>La unidad no debe ser mayor a 5 años. </span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar fotos de la unidad por dentro y por fuera ambos lados y en buen estado. </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar fotos de la unidad por dentro y por fuera de ambos lados y que se encuentre en buen estado </span></li>
                 <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>En caso cuenten con lunas polarizadas, enviar su permiso (PDF). </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Revisión Técnica. </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Todas las unidades deben contar con aire acondicionado en buen estado </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar su número de celular y foto actual. </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>La vestimenta formal consiste en una chaqueta o saco, pantalón de vestir negro, camisa blanca, zapatos negros y corbata.</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Pueden postular hombres y mujeres. </span></li>
               </ul>
-              <ul className='max-lg:flex max-lg:flex-col'>
-                <li className='text-black font-medium text-2xl mb-5'>Revisión Técnica (Si Aplica): </li>
+              {/*<ul className='max-lg:flex max-lg:flex-col'>
+                <li className='text-black font-medium text-2xl mb-5'>Revisión Técnica </li>
                 <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Todas las unidades deben contar con aire acondicionado. </span></li>
                 <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar su número de celular y foto ACTUAL. </span></li>
                 <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>La vestimenta debe ser formal, pantalón de vestir negro, camisa blanca, zapatos negros y corbata (SACO PRESENTABLE) </span></li>
-              </ul>
+              </ul>*/}
               <a href="mailto:cayego33gmail.com" className=' bg-redPrimary text-white font-medium text-base lg:text-lg px-6 py-2 rounded-lg flex gap-2 w-fit items-center'><span>Estoy Interesado</span> <span><SiMinutemailer size={30} /></span></a>
             </div>
             <div className="w-full lg:w-1/2">

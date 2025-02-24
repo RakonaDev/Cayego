@@ -29,7 +29,7 @@ export default function Footer() {
               </div>
 
               <div className='font-Montserrat lg:px-4 space-y-4'>
-                <a href="https://maps.app.goo.gl/C86y55DGFHDPyhV76" target="_blank" rel="noopener noreferrer" className="text-white text-sm lg:text-base flex gap-2"><span><FaMap size={20} /></span> <span>Prolongación Huáscar 195 San Miguel, Lima, Perú</span></a>
+                <a href="https://maps.app.goo.gl/C86y55DGFHDPyhV76" target="_blank" rel="noopener noreferrer" className="text-white text-sm lg:text-base flex gap-2"><span><FaMap size={20} /></span> <span>Prolongación Huascar 195 Dpto. 5 , San Miguel, Lima, Perú</span></a>
                 <p className='flex gap-2 items-center'><span><MdOutlineHomeWork size={20} /></span> <span><span className='font-bold'>Número de RUC:</span> 20613752146</span></p>
                 <p className='flex gap-2'><span><MdOutlineHomeWork size={20} /></span> <span className='my-auto'><span className='font-bold'>Nombre de la Empresa:</span> SAN CAYETANO REMISSE CJ S.A.C. </span></p>
               </div>

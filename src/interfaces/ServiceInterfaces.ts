@@ -1,8 +1,12 @@
 export interface ServiceInterface {
-  id: number
-  title: string
-  description: string
-  url_image: string
+  id?: number;
+  name: string;
+  title_en?: string;
+  description: string;
+  description_en?: string;
+  url_image: string;
+  created_at?: Date;
+  updated_at?: Date;
 }
 
 export interface ServicesResponse {
@@ -12,10 +16,15 @@ export interface ServicesResponse {
 }
 
 export interface ServiceResponse {
-  services: ServiceInterface;
+  service: ServiceInterface;
 }
 
 export interface ServicePaginate {
-  currentPage: number
-  setCurrentPage: (page: number) => void
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
+}
+
+export interface EditService {
+  updatedService: FormData;
+  id?: number;
 }

@@ -1,5 +1,5 @@
 import Yape from '../assets/metodos_pago/yape.webp'
-import Plin from '../assets/metodos_pago/plin.avif'
+import Plin from '../assets/metodos_pago/plin.png'
 import Tarjeta from '../assets/metodos_pago/tarjeta.jpeg'
 import Credito from '../assets/metodos_pago/credito.jpg'
 import Transferencia from '../assets/metodos_pago/transferencia.webp'

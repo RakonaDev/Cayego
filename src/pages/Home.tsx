@@ -12,10 +12,10 @@ import { Image } from '@unpic/react';
 
 // Iconos
 import { motion } from 'motion/react';
-import { dataServices } from '../helper/dataServices'
 import ServiceCard from '../components/utils/ServiceCard'
 import ContactLayout from '../layouts/ContactLayout'
 import { useEffect } from 'react'
+import { useServices } from '../hooks/useServices';
 
 // Metadata
 const BannerInicio: SwiperPropsInterface[] = [
@@ -35,6 +35,7 @@ const BannerInicio: SwiperPropsInterface[] = [
 ]
 
 export default function Home() {
+  const { AllServices } = useServices()
   useEffect(() => {
     window.scrollTo({
       top: 0
@@ -89,7 +90,7 @@ export default function Home() {
               </motion.h3>
               <div className='space-y-10'>
                 {
-                  dataServices.map((service) => {
+                  AllServices?.map((service) => {
                     return (
                       <ServiceCard service={service} key={service.id} />
                     )

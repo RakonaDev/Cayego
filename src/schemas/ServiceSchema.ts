@@ -1,8 +1,10 @@
 import * as Yup from "yup";
 
 export const serviceSchema = Yup.object().shape({
-  title: Yup.string().required("El título es obligatorio"), // title_en: Yup.string(), // If you decide to include title_en later
+  name: Yup.string().required("El título es obligatorio"), // title_en: Yup.string(), // If you decide to include title_en later
+  name_en: Yup.string().required("El título en inglés es obligatorio"),
   description: Yup.string().required("La descripción es obligatoria"), // description_en: Yup.string(), // If you decide to include description_en later
+  description_en: Yup.string().required("La descripción en inglés es obligatoria")
 });
 
 /*

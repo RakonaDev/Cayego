@@ -33,13 +33,13 @@ export const dataSpace: SpaceInterface[] = [
     name_car: 'Minivan',
     space: 8,
     description: 'Perfecta para familias grandes o grupos que necesitan mucho espacio. Comodidad y versatilidad en un solo vehículo.',
-    price: 'Desde S/. 250.00 aprox. y $. 70.00'
+    price: 'Desde S/. 250.00 y $. 70.00'
   },
   {
     url: Bus,
     name_car: 'Bus',
     space: 20,
     description: 'La mejor opción para grupos grandes. Amplio espacio y comodidad para viajes largos y eventos especiales.',
-    price: 'Desde S/. 500.00 y $. 150.00 aprox.'
+    price: 'Desde S/. 500.00 y $. 150.00'
   },
 ];

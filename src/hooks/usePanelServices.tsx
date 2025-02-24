@@ -23,6 +23,9 @@ const fetchServices = async (page: number): Promise<ServicesResponse> => {
       window.location.href = '/administrables/cayego/login';
       throw new Error("Unauthorized");
     }
+    if (response.status !== 200) {
+      window.location.href = '/administrables/cayego/login'
+    }
     return response.data;
   } catch (error) {
     console.error(error);
@@ -56,7 +59,11 @@ const postServices = async (newService: FormData): Promise<ServiceResponse> => {
 
 const patchServices = async (object: EditService): Promise<ServiceResponse> => {
   try {
-    const response = await apiAuth.patchForm(`/services/${object.id}`, object.updatedService);
+    console.log("object.updatedService:", object.updatedService);
+    console.log("Is FormData:", object.updatedService instanceof FormData);
+    console.log("FormData Entries:", Array.from(object.updatedService.entries()));
+    const response = await apiAuth.post(`/services/${object.id}`, object.updatedService, {
+    });
     if (response.status === 401) {
       window.location.href = '/login';
       throw new Error("Unauthorized");
@@ -80,7 +87,7 @@ const patchServices = async (object: EditService): Promise<ServiceResponse> => {
 
 const deleteServices = async (id: number): Promise<ServiceResponse> => {
   try {
-    const response = await apiAuth.delete(`/services/${id}`);
+    const response = await apiAuth.post(`/deleteService/${id}`);
     if (response.status === 401) {
       window.location.href = '/login';
       throw new Error("Unauthorized");
@@ -161,7 +168,7 @@ export function usePanelServices() {
   });
 
   // useMutation para editar una categoría
-  const { mutate: EditService, isPending: LoadingEdit } = useMutation<ServiceResponse, any, EditService>({
+  const { mutate: EditService, isPending: LoadingEdit } = useMutation<ServiceResponse, any , EditService>({
     mutationFn: patchServices,
     onSuccess: async (updatedCategoria) => {
       queryClient.setQueryData<ServicesResponse>(['services', currentPage], (oldCategorias) => {
@@ -186,7 +193,7 @@ export function usePanelServices() {
     },
     onError: (error) => {
       handleClose()
-      console.error("Error en la mutación PostService:", error);
+      console.error("Error en la mutación EditService:", error);
       Swal.fire({
         title: 'Error',
         text: 'No se pudo editar el servicio',

@@ -27,7 +27,7 @@ export function Routing() {
         <Route path="/admin" element={ <PanelLayout /> }>
           <Route path="dashboard" element={ <Dashboard /> }></Route>
           <Route path="servicios" element={ <PanelServicios /> }></Route>
-          <Route path="informacion" element={ <PanelInformacion /> }></Route>
+          <Route path="conductores" element={ <PanelInformacion /> }></Route>
         </Route>
       </Routes>
 

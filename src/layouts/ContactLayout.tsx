@@ -143,6 +143,11 @@ export default function ContactLayout() {
                   <label htmlFor="distrito_destino" className=" text-sm font-medium">Distrito de Destino:</label>
                   <input type="text" required id="distrito_destino" value={values.distrito_destino} name="distrito_destino" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-2 rounded-md border border-black" />
                 </div>
+                <div className='flex items-center gap-2 px-3 '>
+                  <input type="checkbox" name="" id="2" />
+                  <label htmlFor="2" className='text-sm'>Acepto recibir informacion comercial en el futuro de
+                  CayeGo</label>
+                </div>
                 <div className='w-full flex justify-center'>
                   <ReCAPTCHA
                     ref={refCAPTCHA}
@@ -169,8 +174,8 @@ export default function ContactLayout() {
               </section>
               <section className='w-full h-auto p-5 space-y-4 rounded-xl bg-white'>
                 <h6 className='flex gap-2 items-center text-redPrimary font-Montserrat'><span><FaPhoneAlt size={25} /></span> <span className='font-bold text-lg text-black'>Teléfonos: </span></h6>
-                <p className='text-base font-medium'>(+51) 986 296 366</p>
-                <p className='text-base font-medium'>(+51) 904 866 430</p>
+                <p className='text-base font-medium'><a href="tel:+51986296366">(+51) 986 296 366</a></p>
+                <p className='text-base font-medium'><a href="tel:+51904866430">(+51) 904 866 430</a></p>
               </section>
               <section className='w-full px-5 space-y-3'>
                 <h6><span className='font-bold text-xl text-black font-Montserrat'>Siguenos en: </span></h6>
@@ -188,26 +193,26 @@ export default function ContactLayout() {
           </div>
         </main>
         <main className="mt-16">
-          <h2 className="text-center text-2xl lg:text-3xl text-black font-Montserrat font-bold">Conduce con nosotros si cumples con los siguiente documentos </h2>
+          <h2 className="text-center text-2xl lg:text2xl text-black font-Montserrat font-bold">Conduce con nosotros si cumples con los siguiente documentos </h2>
           <div className="w-full lg:flex gap-10 py-10">
             <div className="w-full lg:w-1/2 space-y-10 max-lg:flex max-lg:flex-col max-lg:items-center">
               <ul className='max-lg:flex max-lg:flex-col'>
-                <li className='text-black font-medium text-xl lg:text-2xl mb-5'>Enviar todos estos documentos al siguiente correo cayego33@gmail.com: </li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Antecedentes Policiales o Certi Adulto. (PDF o Foto)</span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>SOAT. (PDF o Foto)</span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Tarjeta de Propiedad. (PDF o Foto)</span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>DNI ambos lados. (PDF o Foto)</span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Recibo de Luz o Agua del Domicilio Actual (PDF o Foto)</span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar su número de RUC</span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar Nº de cuenta BCP o de otro banco con su CCI de 20 digitos</span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>La unidad no debe ser mayor a 5 años. </span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar fotos de la unidad por dentro y por fuera de ambos lados y que se encuentre en buen estado </span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>En caso cuenten con lunas polarizadas, enviar su permiso (PDF). </span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Revisión Técnica. </span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Todas las unidades deben contar con aire acondicionado en buen estado </span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar su número de celular y foto actual. </span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>La vestimenta formal consiste en una chaqueta o saco, pantalón de vestir negro, camisa blanca, zapatos negros y corbata.</span></li>
-                <li className='flex gap-2 text-black text-base lg:text-xl font-medium'><span><FaCheck color='#F22727' /></span> <span>Pueden postular hombres y mujeres. </span></li>
+                <li className='text-black font-medium text-xl lg:text-xl mb-5'>Enviar todos estos documentos al siguiente correo <a href="mailto:cayego33@gmail.com">cayego33@gmail.com</a>: </li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>Antecedentes Policiales o Certi Adulto. (PDF o Foto)</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>SOAT. (PDF o Foto)</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>Tarjeta de Propiedad. (PDF o Foto)</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>DNI ambos lados. (PDF o Foto)</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>Recibo de Luz o Agua del Domicilio Actual (PDF o Foto)</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar su número de RUC</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar Nº de cuenta BCP o de otro banco con su CCI de 20 digitos</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>La unidad no debe ser mayor a 5 años. </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar fotos de la unidad por dentro y por fuera de ambos lados y que se encuentre en buen estado </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>En caso cuenten con lunas polarizadas, enviar su permiso (PDF). </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>Revisión Técnica. </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>Todas las unidades deben contar con aire acondicionado en buen estado </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>Enviar su número de celular y foto actual. </span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>La vestimenta formal consiste en una chaqueta o saco, pantalón de vestir negro, camisa blanca, zapatos negros y corbata.</span></li>
+                <li className='flex gap-2 text-black text-base lg:text-lg font-medium'><span><FaCheck color='#F22727' /></span> <span>Pueden postular hombres y mujeres. </span></li>
               </ul>
               {/*<ul className='max-lg:flex max-lg:flex-col'>
                 <li className='text-black font-medium text-2xl mb-5'>Revisión Técnica </li>

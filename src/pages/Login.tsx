@@ -46,7 +46,12 @@ export default function Login() {
             icon: 'success',
             title: 'Credenciales correctas!'
           })
-          navigate('/admin/dashboard')
+          if (response.data.user.role === 'admin') {
+            navigate('/admin/dashboard')
+          }
+          else if (response.data.user.role === 'conductor') {
+            navigate('/conductor')
+          }
           setLoading(false)
         }
       }

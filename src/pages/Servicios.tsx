@@ -5,11 +5,15 @@ import { Image } from "@unpic/react";
 import { motion } from 'motion/react'
 import Container from '../components/utils/Container';
 import ServiceCard from '../components/utils/ServiceCard';
-import { dataServices } from '../helper/dataServices';
 import AskForReservation from '../components/utils/AskForReservation';
 import { useEffect } from 'react';
+import { useServices } from '../hooks/useServices';
 
 export default function Servicios() {
+  const {
+     AllServices
+  } = useServices()
+  console.log(AllServices)
   useEffect(() => {
     window.scrollTo({
       top: 0
@@ -39,7 +43,7 @@ export default function Servicios() {
             <h2 className='text-center font-clean_deco font-bold text-3xl'>Nuestros Servicios son</h2>
             <div className='w-full h-auto'>
               {
-                dataServices.map((service) => {
+                AllServices?.map((service) => {
                   return (
                     <ServiceCard service={service} />
                   )

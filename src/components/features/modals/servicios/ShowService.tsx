@@ -7,9 +7,15 @@ export function ShowService({ service }: { service: ServiceInterface }) {
   return (
     <div className="w-full space-y-3">
       <div className="w-full flex gap-5">
-        <div className="w-1/2">
-          <p className="font-bold">Título del Servicio: </p>
-          <p>{service.name}</p>
+        <div className="w-1/2 space-y-3">
+          <div>
+            <p className="font-bold">Título del Servicio: </p>
+            <p>{service.name}</p>
+          </div>
+          <div>
+            <p className="font-bold">Título del Servicio en inglés: </p>
+            <p>{service.name_en}</p>
+          </div>
         </div>
         <div className="w-1/2">
           <p className="font-bold">Imagen del Servicio: </p>
@@ -22,9 +28,15 @@ export function ShowService({ service }: { service: ServiceInterface }) {
           />
         </div>
       </div>
-      <div className="w-full">
-        <p className="font-bold">Descripción del Servicio: </p>
-        <p>{service.description}</p>
+      <div className="w-full flex gap-2">
+        <div className="w-1/2">
+          <p className="font-bold">Descripción del Servicio: </p>
+          <p>{service.description}</p>
+        </div>
+        <div className="w-1/2">
+          <p className="font-bold">Descripción del Servicio en Inglés: </p>
+          <p>{service.description_en}</p>
+        </div>
       </div>
       <div className="w-full flex gap-5">
         <div className="w-1/2">

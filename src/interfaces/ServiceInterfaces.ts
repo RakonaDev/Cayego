@@ -1,12 +1,16 @@
 export interface ServiceInterface {
   id?: number;
   name: string;
-  title_en?: string;
+  name_en: string;
   description: string;
-  description_en?: string;
+  description_en: string;
   url_image: string;
   created_at?: Date;
   updated_at?: Date;
+}
+
+export interface ServiceAll {
+  services: ServiceInterface[]
 }
 
 export interface ServicesResponse {

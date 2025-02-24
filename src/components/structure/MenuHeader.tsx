@@ -24,7 +24,7 @@ export default function MenuHeader () {
     if (location.pathname.includes('servicios')) {
       setItemSelected(itemsSelected[1].top)
     }
-    else if (location.pathname.includes('informacion')) {
+    else if (location.pathname.includes('conductores')) {
       setItemSelected(itemsSelected[2].top)
     }
     else {
@@ -33,7 +33,7 @@ export default function MenuHeader () {
   }, [location.pathname])
   return (
     <>
-      <header className="w-1/4 space-y-10 h-dvh flex flex-col pt-20 items-center fixed bg-[#2B2E35] top-0 left-0">
+      <header className="w-[60vw] lg:w-1/4 space-y-10 h-dvh flex flex-col pt-20 items-center fixed bg-[#2B2E35] top-0 left-0">
         <Link to='/admin/dashboard'>
           <Image 
             src={Logo}            
@@ -43,14 +43,16 @@ export default function MenuHeader () {
           />
         </Link>
         <nav className='text-white relative flex flex-col space-y-16 font-bold'>
-          <div className={`${itemSelected} -left-7 rounded-lg w-60 h-16 bg-redPrimary duration-500 transition-all`}></div>
+          <div className={`${itemSelected} -left-6 rounded-lg w-48 h-16 bg-redPrimary duration-500 transition-all`}></div>
           <Link to='/admin/servicios' className='text-base flex gap-4 items-center z-10'>
-            <span><FaCar size={20} /></span>
+            
+            <span><LuInfo size={20} /></span>
             <span className='font-Montserrat'>Servicios</span>
           </Link>
-          <Link to='/admin/informacion' className='text-base flex gap-4 items-center z-10'>
-            <span><LuInfo size={20} /></span>
-            <span className='font-Montserrat'>Información</span>
+          <Link to='/admin/conductores' className='text-base flex gap-4 items-center z-10'>
+
+            <span><FaCar size={20} /></span>
+            <span className='font-Montserrat'>Conductores</span>
           </Link>
         </nav>
       </header>

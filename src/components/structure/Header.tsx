@@ -14,11 +14,15 @@ import { motion } from "framer-motion";
 import { FaArrowRight, FaPhone } from "react-icons/fa6";
 import LanguageButton from "../utils/LanguageButton";
 import { useServices } from "../../hooks/useServices";
+import { useLanguageStore } from "../../store/useLanguageStore";
+import { dataSpanish } from "../../helper/dataSpanish";
+import { dataEnglish } from "../../helper/dataEnglish";
 
 export default function Header() {
   const [isTop, setIsTop] = useState(false)
   const [open, setOpen] = React.useState(false);
   const [expand, setExpand] = React.useState(false);
+  const { language } = useLanguageStore()
   const { AllServices } = useServices()
   const navigate = useNavigate()
   const location = useLocation()
@@ -94,18 +98,18 @@ export default function Header() {
                   {/**onMouseOver={() => setShowMenu(true)} onMouseOut={() => setShowMenu(false)} */}
                   <Button variant="text" className="mx-5 w-20 h-[4.1rem] flex flex-col" onClick={() => LinkFunction('/')}>
                     <IoMdHome size={41} color="black" />
-                    <p className="text-black font-medium">Inicio</p>
+                    <p className="text-black font-medium">{language === 'es' ? dataSpanish.title1 : dataEnglish.title1}</p>
                   </Button>
-                  <Button variant="text" className="mx-5 w-20 h-[4.1rem] flex flex-col  gap-1" onClick={() => LinkFunction('/nosotros')}>
+                  <Button variant="text" className={`mx-5 ${language === 'es' ? 'w-20' : 'w-36'} min-h-[4.1rem] flex flex-col  gap-1`} onClick={() => LinkFunction('/nosotros')}>
                     <FaUsers size={40} color="black" />
-                    <p className="text-black font-medium">Nosotros</p>
+                    <p className={`text-black font-medium ${language === 'es' ? 'text-base' : 'text-xs'}`}>{language === 'es' ? dataSpanish.title2 : dataEnglish.title2}</p>
                   </Button>
                   <div className="group">
                     {/*<BottomNavigationAction label="Servicios" icon={<FaCarAlt size={45} color="black" />} />*/}
                     <Button variant="text" className="mx-5 w-36 h-16 flex gap-2 items-center" onClick={() => LinkFunction('/servicios')}>
                       <div className="flex flex-col items-center">
                         <FaCarAlt size={30} color="black" />
-                        <p className="text-black font-medium">Servicios</p>
+                        <p className="text-black font-medium">{language === 'es' ? dataSpanish.title3 : dataEnglish.title3}</p>
                       </div>
                       <IoIosArrowDown size={23} color="black" />
                     </Button>

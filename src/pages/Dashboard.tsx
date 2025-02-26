@@ -11,12 +11,12 @@ export default function Dashboard() {
           <h1 className="text-white font-bold text-3xl">Dashboard</h1>
           <article className="flex flex-wrap mt-10 gap-10">
             <Link to='/admin/servicios' className="max-w-[200px] flex flex-col items-center w-full bg-[#0D1116] shadow-lg shadow-black/50 rounded-xl p-7 px-10 h-auto space-y-6 text-redPrimary hover:bg-[#0D1116]/90 transition-all duration-500">
-              <FaCar size={75} />
+              <LuInfo size={75} />
               <h2 className="text-white font-bold text-2xl">Servicios</h2>
             </Link>
-            <Link to='/admin/informacion' className="max-w-[200px] flex flex-col items-center w-full bg-[#0D1116] shadow-lg shadow-black/50 rounded-xl p-7 px-10 h-auto space-y-6 text-redPrimary hover:bg-[#0D1116]/90 transition-all duration-500">
-              <LuInfo size={75} />
-              <h2 className="text-white font-bold text-2xl">Información</h2>
+            <Link to='/admin/conductores' className="max-w-[200px] flex flex-col items-center w-full bg-[#0D1116] shadow-lg shadow-black/50 rounded-xl p-7 px-10 h-auto space-y-6 text-redPrimary hover:bg-[#0D1116]/90 transition-all duration-500">
+              <FaCar size={75} />
+              <h2 className="text-white font-bold text-2xl">Conductores</h2>
             </Link>
           </article>
         </div>

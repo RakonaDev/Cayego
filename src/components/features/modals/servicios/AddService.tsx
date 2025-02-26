@@ -81,7 +81,7 @@ export function AddService() {
           <ShowErrors error={errors.description} touched={touched.description} />
         </div>
         <div>
-          <label htmlFor="description" className="text-sm font-medium">Descripción en Inglés:</label>
+          <label htmlFor="description_en" className="text-sm font-medium">Descripción en Inglés:</label>
           <textarea rows={6} cols={20} id="description_en" value={values.description_en} name="description_en" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-1 lg:p-2 max-lg:text-md rounded-md border border-black resize-none"></textarea>
           <ShowErrors error={errors.description_en} touched={touched.description_en} />
         </div>

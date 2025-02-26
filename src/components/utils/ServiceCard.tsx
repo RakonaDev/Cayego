@@ -5,8 +5,10 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 import { FaShieldAlt } from "react-icons/fa";
 import { GrLike } from "react-icons/gr";
 import { imagesUrl } from "../../helper/apiAuth";
+import { useLanguageStore } from "../../store/useLanguageStore";
 
 export default function ServiceCard({ service }: { service: ServiceInterface }) {
+  const { language } = useLanguageStore()
   return (
     <article className="w-full lg:flex gap-10 lg:space-y-0 space-y-5 justify-center group cursor-default p-10 hover:bg-[#303030] hover:text-white hover:rounded-2xl hover:shadow-lg hover:shadow-gray-700 transition-all duration-500">
 
@@ -19,7 +21,8 @@ export default function ServiceCard({ service }: { service: ServiceInterface }) 
             className="w-full lg:w-1/2 overflow-hidden rounded-2xl"
           >
             <img
-              src={`${imagesUrl}${service.url_image}`}
+            title="w"
+              src={`${imagesUrl}servicios/${service.url_image}`}
               width={800}
               height={800}
               className="w-full object-cover group-hover:scale-110 transition-all duration-300"
@@ -32,8 +35,8 @@ export default function ServiceCard({ service }: { service: ServiceInterface }) 
             transition={{ duration: 0.6 }}
             className="w-full lg:w-1/2 flex flex-col justify-center items-center space-y-10"
           >
-            <h3 className="font-bold lg:text-start text-center text-2xl text-redPrimary font-Montserrat lg:font-clean_deco">{service.name}</h3>
-            <p className="text-lg lg:text-start text-center">{service.description}</p>
+            <h3 className="font-bold lg:text-start text-center text-2xl text-redPrimary font-Montserrat lg:font-clean_deco">{language === 'en' ? service.name_en : service.name}</h3>
+            <p className="text-lg lg:text-start text-center">{language === 'en' ? service.description_en : service.description}</p>
             <div className="w-full flex justify-center gap-4">
               <p className="flex gap-2 items-center">
                 <span className="text-redPrimary"><FaShieldAlt size={25} /></span>
@@ -59,8 +62,8 @@ export default function ServiceCard({ service }: { service: ServiceInterface }) 
               transition={{ duration: 0.6 }}
               className="w-full lg:w-1/2 flex flex-col justify-center items-center space-y-10"
             >
-              <h3 className="font-bold lg:text-start text-center text-2xl text-redPrimary font-Montserrat lg:font-clean_deco">{service.name}</h3>
-              <p className="text-lg lg:text-start text-center">{service.description}</p>
+              <h3 className="font-bold lg:text-start text-center text-2xl text-redPrimary font-Montserrat lg:font-clean_deco">{language === 'en' ? service.name_en : service.name}</h3>
+              <p className="text-lg lg:text-start text-center">{language === 'en' ? service.description_en : service.description}</p>
               <div className="w-full flex justify-center gap-4">
                 <p className="flex gap-2 items-center">
                   <span className="text-redPrimary"><FaShieldAlt size={25} /></span>
@@ -85,7 +88,8 @@ export default function ServiceCard({ service }: { service: ServiceInterface }) 
               className="w-full lg:w-1/2 overflow-hidden rounded-2xl"
             >
               <img
-                src={`${imagesUrl}${service.url_image}`}
+                title="e"
+                src={`${imagesUrl}servicios/${service.url_image}`}
                 width={800}
                 height={800}
                 className="w-full object-cover group-hover:scale-110 transition-all duration-300"

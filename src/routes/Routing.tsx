@@ -10,6 +10,7 @@ import PanelLayout from "../layouts/PanelLayout";
 import Dashboard from "../pages/Dashboard";
 import PanelServicios from "../pages/PanelServicios";
 import PanelInformacion from "../pages/PanelInformacion";
+import InfoUser from "../pages/InfoUser";
 
 export function Routing() {
   return (
@@ -29,6 +30,7 @@ export function Routing() {
           <Route path="servicios" element={ <PanelServicios /> }></Route>
           <Route path="conductores" element={ <PanelInformacion /> }></Route>
         </Route>
+        <Route path="/conductor" element={ <InfoUser /> }></Route>
       </Routes>
 
     </BrowserRouter>

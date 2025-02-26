@@ -59,7 +59,7 @@ export default function UpdateDriver({ driver }: { driver: DriverInterface }) {
       <form onSubmit={handleSubmit} className="w-full h-full p-2 space-y-3 flex flex-col items-center">
         <div className="w-full flex gap-2 max-lg:flex-col">
           <div className="w-full lg:w-1/2">
-            <label htmlFor="title" className="text-sm font-medium">Nombre Completo del Conductor:</label>
+            <label htmlFor="name" className="text-sm font-medium">Nombre Completo del Conductor:</label>
             <input type="text" id="name" value={values.name} name="name" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-1 lg:p-2 max-lg:text-md rounded-md border border-black" />
             <ShowErrors error={errors.name} touched={touched.name} />
           </div>

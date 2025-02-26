@@ -1,6 +1,7 @@
 import { Image } from "@unpic/react";
 import { parseToLocalTime } from "../../../../logic/parseToLocalTime";
 import { DriverInterface } from "../../../../interfaces/DriversInterface";
+import { imagesUrl } from "../../../../helper/apiAuth";
 
 export function ShowDriver({ driver }: { driver: DriverInterface }) {
 
@@ -56,7 +57,7 @@ export function ShowDriver({ driver }: { driver: DriverInterface }) {
         <div className="w-full lg:w-1/2 space-y-2 ">
           <p className="font-bold">Imagen del Conductor: </p>
           <Image
-            src={`http://127.0.0.1:8000/storage/${driver.photo_driver}`}
+            src={`${imagesUrl}conductores/${driver.photo_driver}`}
             width={350}
             height={350}
             layout="constrained"
@@ -66,7 +67,7 @@ export function ShowDriver({ driver }: { driver: DriverInterface }) {
         <div className="w-full lg:w-1/2 space-y-2">
           <p className="font-bold">Imagen de la Unidad: </p>
           <Image
-            src={`http://127.0.0.1:8000/storage/${driver.photo_vehicle}`}
+            src={`${imagesUrl}vehiculos/${driver.photo_vehicle}`}
             width={350}
             height={350}
             layout="constrained"

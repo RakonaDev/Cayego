@@ -1,6 +1,7 @@
 import { Image } from "@unpic/react";
 import { SpaceInterface } from "../../interfaces/SpaceInterface";
 import { TbArmchair } from "react-icons/tb";
+import { Link } from "react-router-dom";
 /*
 import Yape from '../../assets/metodos_pago/yape.webp'
 import Plin from '../../assets/metodos_pago/plin.avif'
@@ -18,9 +19,9 @@ export default function TransportCard({ transport }: { transport: SpaceInterface
           height={300}
           className="lg:max-w-[300px] min-h-[190px] w-full object-cover rounded-lg cursor-default group-hover:translate-x-5 translate-x-0 duration-500 transition-all"
         />
-        <div className="space-y-3">
+        <div className="space-y-3 flex flex-col justify-center">
           <h3 className=" text-2xl text-center font-bold font-Montserrat lg:font-Montserrat text-redPrimary max-lg:text-center">{transport.name_car}</h3>
-          <p className="text-sm mx-auto px-3 py-2 bg-redPrimary text-white w-fit font-medium rounded-lg">{transport.price}</p>
+          <Link to='/contacto' className="text-sm mx-auto px-3 py-2 bg-redPrimary text-white w-fit font-medium rounded-lg">{transport.price}</Link>
         </div>
       </div>
       <div className="w-full lg:w-1/2 h-full flex flex-col justify-center space-y-5">

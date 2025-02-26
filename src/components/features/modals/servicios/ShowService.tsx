@@ -1,6 +1,7 @@
 import { Image } from "@unpic/react";
 import { ServiceInterface } from "../../../../interfaces/ServiceInterfaces";
 import { parseToLocalTime } from "../../../../logic/parseToLocalTime";
+import { imagesUrl } from "../../../../helper/apiAuth";
 
 export function ShowService({ service }: { service: ServiceInterface }) {
   console.log(service)
@@ -20,7 +21,7 @@ export function ShowService({ service }: { service: ServiceInterface }) {
         <div className="w-1/2">
           <p className="font-bold">Imagen del Servicio: </p>
           <Image
-            src={`http://127.0.0.1:8000${service.url_image}`}
+            src={`${imagesUrl}servicios/${service.url_image}`}
             width={350}
             height={350}
             layout="constrained"

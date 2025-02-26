@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Image } from "@unpic/react"
 import { motion } from 'motion/react'
-import { ServiceInterface } from "../interfaces/ServiceInterfaces"
 import AskForReservation from "../components/utils/AskForReservation"
 import Container from "../components/utils/Container"
 import RedirectToElement from "../logic/RedirectToElement"
@@ -17,10 +15,22 @@ import Dinners from '../assets/metodos_pago/dinners.png'
 import Soles from '../assets/metodos_pago/soles.png'
 import Dolar from '../assets/metodos_pago/dolar.png'
 import { IoMdInformationCircleOutline } from "react-icons/io"
-import { dataServices } from "../helper/dataServices"
+/*import { dataServices } from "../helper/dataServices"*/
+import { useSelectedService } from "../hooks/useSelectedService"
+import { useServiceSelected } from "../store/useServiceSelected"
+import { useEffect } from "react"
+import { imagesUrl } from "../helper/apiAuth"
+import { useLanguageStore } from "../store/useLanguageStore"
 
 export default function ServiceLayout() {
+  const { setServiceSelected } = useServiceSelected()
+  const { servicesSelected } = useSelectedService()
+  const { language } = useLanguageStore()
   const { id } = useParams()
+  useEffect(() => {
+    setServiceSelected(Number(id))
+  }, [id])
+  /*
   const [serviceSelected, setServiceSelected] = useState<ServiceInterface>({
     description: '',
     name_en: '',
@@ -36,13 +46,13 @@ export default function ServiceLayout() {
     const Data = dataServices.filter((item) => item.id === Number(id))
     setServiceSelected(Data[0])
   }, [id])
-
+  */
   return (
     <>
       <div className="h-auto w-full">
         <header className="w-full h-dvh lg:h-[65dvh] overflow-hidden relative flex justify-center items-center">
           <Image
-            src={serviceSelected.url_image}
+            src={`${imagesUrl}servicios/${servicesSelected?.url_image || ''}`}
             width={1440}
             height={980}
             className='w-full h-full object-cover lg:h-[65dvh] brightness-75 absolute top-0'
@@ -54,7 +64,7 @@ export default function ServiceLayout() {
               transition={{ type: 'spring', duration: 1 }}
               className='font-bold font-clean_deco text-white z-20 text-xl lg:text-3xl text-center'
             >
-              {serviceSelected.name}
+              {language === 'es' ? servicesSelected?.name : servicesSelected?.name_en}
             </motion.h1>
             <button onClick={() => RedirectToElement('reserva')} type="button" className="bg-redPrimary font-medium text-base lg:textl-lg text-white px-6 py-2 z-10 mx-auto rounded-lg">
               Quiero Reservar
@@ -66,7 +76,7 @@ export default function ServiceLayout() {
         <Container>
           <div className="space-y-10">
             <h2 className="text-center font-bold text-xl lg:text-2xl font-Montserrat text-redPrimary">De que trata este servicio?</h2>
-            <p className="font-medium text-md lg:text-base text-center">{serviceSelected.description}</p>
+            <p className="font-medium text-md lg:text-base text-center">{language === 'es' ? servicesSelected?.description : servicesSelected?.description_en}</p>
           </div>
         </Container>
       </section>

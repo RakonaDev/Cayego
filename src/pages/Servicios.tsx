@@ -21,12 +21,12 @@ export default function Servicios() {
   }, [])
   return (
     <>
-      <header className="w-full h-[50dvh] overflow-hidden relative flex justify-center items-center">
+      <header className="w-full h-[70dvh] overflow-hidden relative flex justify-center items-center">
         <Image
           src={Banner}
           width={1440}
           height={980}
-          className='w-full object-cover h-[50dvh] brightness-75 absolute top-0'
+          className='w-full object-cover h-[70dvh] brightness-75 absolute top-0'
         />
         <motion.h1
           initial={{ opacity: 0, y: 100 }}
@@ -45,7 +45,7 @@ export default function Servicios() {
               {
                 AllServices?.map((service) => {
                   return (
-                    <ServiceCard service={service} />
+                    <ServiceCard service={service} key={service.id} />
                   )
                 })
               }

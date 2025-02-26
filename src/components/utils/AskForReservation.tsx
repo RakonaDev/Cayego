@@ -57,8 +57,8 @@ export default function AskForReservation() {
             apellidos: values.apellido,
             fecha: values.fecha,
             hora: values.hora,
-            distrito_origen: values.direccion_origen + ' ' + values.distrito_origen,
-            distrito_destino: values.direccion_destino + ' ' + values.distrito_destino
+            distrito_origen: values.direccion_origen,
+            distrito_destino: values.direccion_destino
           })
           if (response.status === 200) {
             setLoading(false)
@@ -124,7 +124,17 @@ export default function AskForReservation() {
                 <input type="time" required id="hora" value={values.hora} name="hora" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-1 lg:p-2 max-lg:text-md rounded-md border border-black" />
               </div>
             </div>
-            <div className="w-full flex gap-2 max-lg:flex-col">
+            <div className="w-full space-y-2 flex flex-col">
+              <label htmlFor="direccion_origen" className="text-sm font-bold text-redPrimary">Origen (Recojo)</label>
+              <label htmlFor="direccion_origen" className="text-sm font-medium">Dirección y Distrito</label>
+              <input type="text" required id="direccion_origen" value={values.direccion_origen} name="direccion_origen" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-2 rounded-md border border-black" />
+            </div>
+            <div className="w-full space-y-2 flex flex-col">
+              <label htmlFor="direccion_origen" className="text-sm font-bold">Destino (Llegada)</label>
+              <label htmlFor="direccion_destino" className=" text-sm font-medium">Dirección y Distrito:</label>
+              <input type="text" required id="direccion_destino" value={values.direccion_destino} name="direccion_destino" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-2 rounded-md border border-black" />
+            </div>
+            {/*<div className="w-full flex gap-2 max-lg:flex-col">
               <div className='w-full lg:w-1/2'>
                 <label htmlFor="direccion_origen" className="text-sm font-medium">Dirección de Origen:</label>
                 <input type="text" required id="direccion_origen" value={values.direccion_origen} name="direccion_origen" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-1 lg:p-2 max-lg:text-md rounded-md border border-black" />
@@ -143,26 +153,26 @@ export default function AskForReservation() {
                 <label htmlFor="direccion_destino" className="text-sm font-medium">Dirección y Distrito de Destino:</label>
                 <input type="text" required id="direccion_destino" value={values.direccion_destino} name="direccion_destino" onChange={handleChange} onBlur={handleBlur} className="w-full bg-gray-300/40 p-1 lg:p-2 max-lg:text-md rounded-md border border-black" />
               </div>
-            </div>
-            <div className='w-full flex justify-center'>
-              <ReCAPTCHA
-                ref={refCAPTCHA}
-                sitekey='6LdptTUqAAAAAEN7szwumM1ksjY_WBlDGfSv6PPq'
-                onChange={handleCaptcha}
-              />
-            </div>
-            <button type="submit" className="px-8 py-2 bg-redPrimary font-medium text-white text-base lg:text-lg rounded-lg">{loading ? 'Enviando Reserva...' : 'Enviar'}</button>
-          </form>
-        </div>
-        <div className='w-full lg:w-1/2'>
-          <Image
-            src={Car}
-            width={600}
-            height={600}
-            className='w-full'
+        </div>*/}
+        <div className='w-full flex justify-center'>
+          <ReCAPTCHA
+            ref={refCAPTCHA}
+            sitekey='6LdptTUqAAAAAEN7szwumM1ksjY_WBlDGfSv6PPq'
+            onChange={handleCaptcha}
           />
         </div>
-      </section>
+        <button type="submit" className="px-8 py-2 bg-redPrimary font-medium text-white text-base lg:text-lg rounded-lg">{loading ? 'Enviando Reserva...' : 'Enviar'}</button>
+      </form>
+    </div >
+      <div className='w-full lg:w-1/2'>
+        <Image
+          src={Car}
+          width={600}
+          height={600}
+          className='w-full'
+        />
+      </div>
+      </section >
     </>
   )
 }

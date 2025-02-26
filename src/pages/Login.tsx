@@ -12,10 +12,11 @@ import { LoginSchema } from '../schemas/UserSchemas'
 import ShowErrors from '../components/features/ShowErrors'
 import Swal from 'sweetalert2'
 import { useTokenAccess } from '../store/useTokenAccess'
+import { apiURL } from '../helper/apiAuth'
 
 export default function Login() {
   const navigate = useNavigate()
-  const { setToken } = useTokenAccess()
+  const { setToken, clearToken } = useTokenAccess()
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const {
@@ -35,12 +36,13 @@ export default function Login() {
       if (loading) return
       setLoading(true)
       try {
-        const response = await axios.post('http://127.0.0.1:8000/api/login', {
+        const response = await axios.post(`${apiURL}/login`, {
           email: values.email,
           password: values.password
         })
         // localStorage.setItem('access_token', response.data.access_token)
         if (response.status === 200) {
+          clearToken()
           setToken(response.data.access_token)
           Swal.fire({
             icon: 'success',
@@ -77,9 +79,10 @@ export default function Login() {
         <div className='w-full flex flex-col items-center'>
           <Image
             src={Logo}
-            width={200}
-            height={200}
-            className='mx-auto'
+            width={300}
+            height={300}
+            layout='constrained'
+            className='mx-auto max-lg:w-40'
           />
           <form onSubmit={handleSubmit} className='max-w-lg w-full p-5 space-y-6 flex flex-col items-center'>
             <div className='space-y-3 w-full flex flex-col'>

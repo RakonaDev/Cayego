@@ -29,8 +29,8 @@ export default function PanelServicios() {
 
   return (
     <div className="flex min-h-dvh">
-      <div className="w-1/4 h-dvh"></div>
-      <main className="w-3/4 min-h-dvh py-5 px-5 space-y-7 bg-[#222529] text-white">
+      <div className="max-lg:hidden w-1/4 h-dvh"></div>
+      <main className="w-full lg:w-3/4 min-h-dvh py-5 px-5 space-y-7 bg-[#222529] text-white">
         <div className='flex justify-between items-center bg-[#101010] px-5 py-3 rounded-xl'>
           <h2 className="text-white font-bold text-xl">Panel de Servicios</h2>
           <div>

@@ -59,7 +59,7 @@ export default function About() {
           <div className='flex gap-5 items-center max-lg:flex-col'>
             <div className='w-full lg:w-1/2 space-y-6'>
               <h2 className='text-center text-2xl font-bold font-Montserrat text-redPrimary'>¿Quiénes Somos?</h2>
-              <p className='text-center text-base'>CayeGo es una empresa especializada en servicios de traslado, diseñada para ofrecer soluciones de movilidad seguras, eficientes y accesibles. Nos enfocamos en brindar una experiencia de transporte confiable, cómoda y a la medida, tanto para particulares como para empresas. Con un equipo de profesionales altamente capacitados y una flota moderna, nos aseguramos de que cada trayecto sea puntual, seguro y placentero. Ya sea para viajes locales o de larga distancia, en CayeGo trabajamos para hacer que tu traslado sea una experiencia sin complicaciones, adaptándonos siempre a tus necesidades y tiempos.</p>
+              <p className='text-center text-base'>CayeGo es una empresa especializada en servicios de traslado, diseñada para ofrecer soluciones de movilidad seguras, eficientes y accesibles. Nos enfocamos en brindar una experiencia de transporte confiable, cómoda y a la medida, tanto para particulares como para empresas. Contamos con un equipo de profesionales altamente capacitados y una flota moderna, nos aseguramos de que cada trayecto sea puntual, seguro y placentero. Ya sea para viajes locales o de larga distancia, en CayeGo trabajamos para hacer que tu traslado sea una experiencia sin complicaciones, adaptándonos siempre a tus necesidades y tiempos.</p>
             </div>
             <div className='w-full lg:w-1/2 relative'>
               <Image

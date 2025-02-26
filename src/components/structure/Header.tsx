@@ -10,14 +10,16 @@ import { FiMenu } from "react-icons/fi";
 import { SelectPage } from "../../logic/SelectPage";
 import Logo from '../../assets/logo.png'
 import { dataServices } from "../../helper/dataServices";
-import { AnimatePresence } from "motion/react";
 import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight, FaPhone } from "react-icons/fa6";
+import LanguageButton from "../utils/LanguageButton";
+import { useServices } from "../../hooks/useServices";
 
 export default function Header() {
   const [isTop, setIsTop] = useState(false)
   const [open, setOpen] = React.useState(false);
   const [expand, setExpand] = React.useState(false);
+  const { AllServices } = useServices()
   const navigate = useNavigate()
   const location = useLocation()
   const [value, setValue] = React.useState(0);
@@ -54,8 +56,18 @@ export default function Header() {
     setOpen(newOpen);
   };
   return (
-    <div>
-      <header className="fixed z-50 top-0 w-full py-2 bg-white shadow-md shadow-gray-400">
+    <div className="fixed z-50 top-0 w-full">
+      <header className="w-full py-2 bg-black">
+        <Container>
+          <div className="flex justify-end text-white">
+            <a href="tel:+51986296366" className="w-fit h-fit flex items-center gap-2">
+              <span><FaPhone /></span>
+              <span className="text-xs font-Montserrat tracking-wider">Teléfono: +51 986 296 366</span>
+            </a>
+          </div>
+        </Container>
+      </header>
+      <header className="w-full py-2 bg-white shadow-md shadow-gray-400">
         <Container>
           <div className="flex justify-between items-center">
             <div className="w-fit h-fit">
@@ -97,10 +109,10 @@ export default function Header() {
                       </div>
                       <IoIosArrowDown size={23} color="black" />
                     </Button>
-                    <motion.div className="w-fit px-8 py-5 absolute top-[100%] h-auto group-hover:opacity-100 -right-[500%] opacity-0 duration-500 transition-all  rounded-xl group-hover:right-12" key={'wwwww'} >
+                    <motion.div className="w-fit px-8 py-5 absolute top-[100%] h-auto group-hover:opacity-100 -right-[200%] opacity-0 duration-500 transition-all  rounded-xl group-hover:right-28" key={'wwwww'} >
                       <div className="bg-white px-7 shadow-md shadow-black/30 py-5 rounded-xl space-y-2 ">
                         {
-                          dataServices.map((service) => {
+                          AllServices?.map((service) => {
                             return (
                               <Link to={`/servicios/${service.id}`} key={service.id} onClick={toggleDrawer(false)}>
                                 <div className="flex gap-2 items-center">
@@ -124,11 +136,10 @@ export default function Header() {
                     <FaUserTie size={40} color="black" />
                     <p className="text-black font-medium">Intranet</p>
                   </Button>
-
+                  <div className="px-5">
+                    <LanguageButton />
+                  </div>
                 </BottomNavigation>
-                <AnimatePresence>
-
-                </AnimatePresence>
               </Box>
             </nav>
             <nav className="lg:hidden">

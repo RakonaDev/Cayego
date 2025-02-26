@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { apiAuth } from "../helper/apiAuth";
+import { apiAuth, imagesUrl } from "../helper/apiAuth";
 import { toast } from "sonner";
 import { useContext } from "react";
 import { DialogContext } from "../context/DialogContext";
@@ -34,7 +34,7 @@ const postDrivers = async (newDriver: FormData): Promise<DriverResponse> => {
   try {
     const response = await apiAuth.postForm('/drivers', newDriver);
     if (response.status === 401) {
-      window.location.href = '/administrables/cayego/login';
+      window.location.href = '/login';
       throw new Error("Unauthorized");
     }
     if (response.status !== 200) {
@@ -285,7 +285,7 @@ export function usePanelDrivers() {
             </div>
             <div className="w-full min-w-[150px] xl:col-span-2 flex justify-center  items-center text-sm">
               <Image
-                src={`http://127.0.0.1:8000/storage/${driver.photo_driver}`}
+                src={`${imagesUrl}conductores/${driver.photo_driver}`}
                 width={100}
                 height={100}
                 layout="constrained"

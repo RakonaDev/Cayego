@@ -6,7 +6,7 @@ import LogoSecundario from '../../assets/footer/logo-secundario.png'
 import { Image } from "@unpic/react";
 import Container from "../utils/Container";
 import { SiInstagram } from 'react-icons/si';
-import { MdOutlineEmail, MdOutlineHomeWork, MdOutlinePhoneAndroid } from "react-icons/md";
+import { MdOutlineEmail, MdOutlineHomeWork, MdOutlinePhoneAndroid, MdOutlineSupportAgent } from "react-icons/md";
 import { FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { FaBook, FaBookBookmark, FaMap, FaTiktok, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 
@@ -45,7 +45,7 @@ export default function Footer() {
               <h5 className='font-bold text-white text-base lg:text-lg' >Contáctanos: </h5>
               <p className='flex gap-2 items-center text-md lg:text-base'><span><MdOutlineEmail size={30} /></span> <span><span className='font-bold'>Email:</span> cayego33@gmail.com</span></p>
               <p className='flex gap-2 items-center text-md lg:text-base'><span><MdOutlinePhoneAndroid size={30} /></span> <span><span className='font-bold'>Celular Principal:</span> (+51) 986 296 366</span></p>
-              <p className='flex gap-2 items-center text-md lg:text-base'><span><MdOutlinePhoneAndroid size={30} /></span> <span><span className='font-bold'>Celular Secundario:</span> (+51) 904 866 430</span></p>
+              <p className='flex gap-2 items-center text-md lg:text-base'><span><MdOutlineSupportAgent size={30} /></span> <span className='font-bold'>Hora Atención: <span className='font-normal'>24 Horas</span></span></p>
               <div className='pt-4 space-y-5'>
                 <h6 className='text-base lg:text-lg font-bold'>Síguenos en: </h6>
                 <nav className='flex gap-5 flex-wrap max-lg:justify-evenly'>

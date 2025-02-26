@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { apiAuth } from "../helper/apiAuth";
+import { apiAuth, imagesUrl } from "../helper/apiAuth";
 import { EditService, ServiceInterface, ServiceResponse, ServicesResponse } from "../interfaces/ServiceInterfaces";
 import { toast } from "sonner";
 import { useServiceStore } from "../store/useServiceStore";
@@ -295,7 +295,7 @@ export function usePanelServices() {
             </div>
             <div className="w-full min-w-[150px] xl:col-span-3 flex justify-center  items-center text-sm">
               <Image
-                src={`http://127.0.0.1:8000${service.url_image}`}
+                src={`${imagesUrl}servicios/${service.url_image}`}
                 width={100}
                 height={100}
                 layout="constrained"
